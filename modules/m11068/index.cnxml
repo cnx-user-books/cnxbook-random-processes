@@ -1,0 +1,412 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Expectation</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>9102de8f-27bf-4e10-b4cc-2f9c1c05f92a</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      Expectations form a fundamental part of random signal theory. In
+      simple terms the <term>Expectation Operator</term> calculates
+      the <term>mean</term> of a random quantity although the concept
+      turns out to be much more general and useful than just this.
+    </para>
+    <para id="para2">
+      If <m:math><m:ci>X</m:ci></m:math> has pdf 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">
+	    <m:msub>
+	      <m:mi>f</m:mi>
+	      <m:mi>X</m:mi>
+	    </m:msub>
+	  </m:ci>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math> (correctly normalised so that 
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:apply>
+	    <m:int/>
+	    <m:bvar>
+	      <m:ci>x</m:ci>
+	    </m:bvar>
+	    <m:lowlimit>
+	      <m:apply>
+		<m:minus/>
+		<m:infinity/>
+	      </m:apply>
+	    </m:lowlimit>
+	    <m:uplimit>
+	      <m:infinity/>
+	    </m:uplimit>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>f</m:mi>
+		  <m:mi>X</m:mi>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	  </m:apply>
+	  <m:cn>1</m:cn>
+	</m:apply>
+      </m:math>), its expectation is given by:
+      <equation id="eq1">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:ci>X</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar>
+		<m:ci>x</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:infinity/>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:infinity/>
+	      </m:uplimit>
+	      <m:apply>
+		<m:times/>
+		<m:ci>x</m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>f</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:mean/>
+	      <m:ci>X</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      For discrete processes, we substitute <link document="m10984" target-id="eq6" strength="2">this previous equation</link> in
+      here to get
+      <equation id="eq2">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:ci>X</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar>
+		<m:ci>x</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:infinity/>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:infinity/>
+	      </m:uplimit>
+	      <m:apply>
+		<m:times/>
+		<m:ci>x</m:ci>
+		<m:apply>
+		  <m:sum/>
+		  <m:bvar>
+		    <m:ci>i</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>1</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>M</m:ci>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>p</m:mi>
+			  <m:mi>X</m:mi>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub>
+			  <m:mi>x</m:mi>
+			  <m:mi>i</m:mi>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">δ</m:ci>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>x</m:ci>
+			<m:ci>
+			  <m:msub>
+			    <m:mi>x</m:mi>
+			    <m:mi>i</m:mi>
+			  </m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:sum/>
+	      <m:bvar>
+		<m:ci>i</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>M</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:times/>
+		<m:ci>
+		  <m:msub>
+		    <m:mi>x</m:mi>
+		    <m:mi>i</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>p</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>x</m:mi>
+		      <m:mi>i</m:mi>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:mean/>
+	      <m:ci>X</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      Now, what is the mean value of some function, 
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:ci>Y</m:ci>
+	  <m:apply>
+	    <m:ci type="fn">g</m:ci>
+	    <m:ci>X</m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math>?
+    </para>
+
+    <para id="para3">
+      Using the result of <link document="m11066" target-id="eq19" strength="2">this previous equation</link> for pdfs of
+	related processes <m:math> <m:ci>Y</m:ci></m:math> and
+	<m:math><m:ci>X</m:ci> </m:math>:
+      <equation id="eq3">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>f</m:mi>
+		    <m:mi>Y</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:mo>ⅆ</m:mo>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>f</m:mi>
+		    <m:mi>X</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:mo>ⅆ</m:mo>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      Hence (again assuming infinite integral limits unless stated
+      otherwise) 
+      <equation id="eq4">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:ci type="fn">g</m:ci>
+		<m:ci>X</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:ci>Y</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar>
+		<m:ci>y</m:ci>
+	      </m:bvar>
+	      <m:apply>
+		<m:times/>
+		<m:ci>y</m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>f</m:mi>
+		      <m:mi>Y</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar>
+		<m:ci>x</m:ci>
+	      </m:bvar>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">g</m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>f</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      This is an important result which allows us to use the
+      Expectation Operator for many purposes including the calculation
+      of moments and other related parameters of a random process.
+    </para>
+
+    <para id="para4">
+      Note, expectation is a <term>Linear Operator</term>:
+      <equation id="eq5">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>a</m:ci>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>g</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>X</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>b</m:ci>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>g</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>X</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:plus/>
+	      <m:apply>
+		<m:times/>
+		<m:ci>a</m:ci>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>g</m:mi>
+			<m:mn>1</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>X</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:ci>b</m:ci>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>g</m:mi>
+			<m:mn>2</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>X</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+    </para>
+  </content>
+</document>

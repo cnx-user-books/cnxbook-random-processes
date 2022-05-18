@@ -1,0 +1,828 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Correlation and Covariance</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>7c125455-b5aa-47bf-a03a-dbb1820256db</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      Correlation and covariance are techniques for measuring the
+      similarity of one signal to another. For a random process 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">X</m:ci>
+	  <m:ci>t</m:ci>
+	  <m:ci>α</m:ci>
+	</m:apply>
+      </m:math> they are defined as follows.
+
+      <list id="list1">
+	<item>
+	  <term>Auto-correlation function:</term>
+	  
+	  <equation id="eq1">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn"><m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>X</m:mi>
+		      </m:mrow>
+		    </m:msub></m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">X</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>α</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">X</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>α</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci> 
+		    </m:bvar>
+		    <m:apply>
+		      <m:times/>
+		       <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci> 
+		       <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci> 
+		      <m:apply>
+			<m:ci type="fn">f</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci> 
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci> 
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  where the expectation is performed over all 
+	  <m:math>
+	    <m:apply>
+	      <m:in/>
+	      <m:ci>α</m:ci>
+	      <m:ci></m:ci>
+	    </m:apply>
+	  </m:math> (i.e. the whole ensemble), and 
+	  <m:math>
+	    <m:apply>
+	      <m:ci type="fn">f</m:ci>
+	      <m:ci>
+		<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci> 
+	      <m:ci>
+		<m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+	      </m:ci> 
+	    </m:apply>
+	  </m:math> is the joint pdf when 
+	  <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	  </m:math> and 
+	  <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+	    </m:ci>
+	  </m:math> are samples taken at times 
+	  <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	  </m:math> and 
+	  <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+	    </m:ci>
+	  </m:math> from the <emphasis>same random event</emphasis>
+	  <m:math><m:ci>α</m:ci></m:math> of the random process
+	  <m:math><m:ci>X</m:ci></m:math>. 
+	</item>
+	
+	<item>
+	  <term>Auto-covariance function:</term>
+
+	  <equation id="eq2">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn"><m:msub>
+		      <m:mi>c</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>X</m:mi>
+		      </m:mrow>
+		    </m:msub></m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>
+
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+			<m:ci>α</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:mean/>
+			<m:apply>
+			  <m:ci type="fn">X</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+			<m:ci>α</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:mean/>
+			<m:apply>
+			  <m:ci type="fn">X</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:domainofapplication>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:domainofapplication>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:bvar>
+		    <m:domainofapplication>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:domainofapplication>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+			<m:apply>
+			  <m:mean/>
+			  <m:apply>
+			    <m:ci type="fn">X</m:ci>
+			    <m:ci>
+			      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			    </m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+			<m:apply>
+			  <m:mean/>
+			  <m:apply>
+			    <m:ci type="fn">X</m:ci>
+			    <m:ci>
+			      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			    </m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">f</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci> 
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci> 
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+			
+		<m:apply>
+		  <m:plus/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:ci type="fn"><m:msub>
+			  <m:mi>r</m:mi>
+			  <m:mrow>
+			    <m:mi>X</m:mi>
+			    <m:mi>X</m:mi>
+			  </m:mrow>
+			</m:msub></m:ci>
+		      <m:ci>
+			<m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>  
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:apply>
+			<m:mean/>
+			<m:apply>
+			  <m:ci type="fn">X</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:mean/>
+			<m:apply>
+			  <m:ci type="fn">X</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:mean/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:mean/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:ci type="fn"><m:msub>
+			<m:mi>r</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>X</m:mi>
+			</m:mrow>
+		      </m:msub></m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>  
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:mean/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:mean/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>  
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  where the same conditions apply as for auto-correlation and
+	  the means 
+	  <m:math>
+	    <m:apply>
+	      <m:mean/>
+	      <m:apply>
+		<m:ci type="fn">X</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:math> and 
+	  <m:math>
+	    <m:apply>
+	      <m:mean/>
+	      <m:apply>
+		<m:ci type="fn">X</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:math> are taken over all 
+	  <m:math>
+	    <m:apply>
+	      <m:in/>
+	      <m:ci>α</m:ci>
+	      <m:ci></m:ci>
+	    </m:apply>
+	  </m:math>. Covariances are similar to correlations except
+	  that the effects of the means are removed.
+	</item>
+	
+	<item>
+	  <term>Cross-correlation function:</term> If we have two
+	  different processes, 
+	  <m:math>
+	    <m:apply>
+	      <m:ci type="fn">X</m:ci>
+	      <m:ci>t</m:ci>
+	      <m:ci>α</m:ci>
+	    </m:apply>
+	  </m:math> and 
+	   <m:math>
+	    <m:apply>
+	      <m:ci type="fn">Y</m:ci>
+	      <m:ci>t</m:ci>
+	      <m:ci>α</m:ci>
+	    </m:apply>
+	  </m:math>, both arising as a result of the same random event
+	  <m:math><m:ci>α</m:ci></m:math>, then
+	  cross-correlation is defined as 
+
+	  <equation id="eq3">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn"><m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>Y</m:mi>
+		      </m:mrow>
+		    </m:msub></m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>  
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">X</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>α</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">Y</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>α</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>y</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci> 
+		    </m:bvar>
+		    <m:apply>
+		      <m:times/>
+		       <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci> 
+		       <m:ci>
+			<m:msub><m:mi>y</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci> 
+		      <m:apply>
+			<m:ci type="fn">f</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci> 
+			<m:ci>
+			  <m:msub><m:mi>y</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci> 
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  where 
+	  <m:math>
+	    <m:apply>
+	      <m:ci type="fn">f</m:ci>
+	      <m:ci>
+		<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci> 
+	      <m:ci>
+		<m:msub><m:mi>y</m:mi><m:mn>2</m:mn></m:msub>
+	      </m:ci> 
+	    </m:apply>
+	  </m:math> is the joint pdf when 
+	  <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci> 
+	  </m:math> and 
+	  <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>y</m:mi><m:mn>2</m:mn></m:msub>
+	    </m:ci> 
+	  </m:math> are samples of <m:math><m:ci>X</m:ci></m:math> and
+	  <m:math><m:ci>Y</m:ci></m:math> taken at times 
+	   <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci> 
+	  </m:math> and 
+	  <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub> </m:ci>
+	    </m:math> as a result of the <emphasis>same random
+	    event</emphasis>
+	    <m:math><m:ci>α</m:ci></m:math>. Again the
+	    expectation is performed over all
+	  <m:math>
+	    <m:apply>
+	      <m:in/>
+	      <m:ci>α</m:ci>
+	      <m:ci></m:ci>
+	    </m:apply>
+	  </m:math>.
+	</item>
+	
+	<item>
+	  <term>Cross-covariance function:</term>
+	  
+	  <equation id="eq4">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn"><m:msub>
+		      <m:mi>c</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>Y</m:mi>
+		      </m:mrow>
+		    </m:msub></m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>
+		
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+			<m:ci>α</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:mean/>
+			<m:apply>
+			  <m:ci type="fn">X</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:ci type="fn">Y</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+			<m:ci>α</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:mean/>
+			<m:apply>
+			  <m:ci type="fn">Y</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>y</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:domainofapplication>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:domainofapplication>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:bvar>
+		    <m:domainofapplication>
+		    <m:ci>
+		      <m:msub><m:mi>y</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:domainofapplication>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+			<m:apply>
+			  <m:mean/>
+			  <m:apply>
+			    <m:ci type="fn">X</m:ci>
+			    <m:ci>
+			      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			    </m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub><m:mi>y</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+			<m:apply>
+			  <m:mean/>
+			  <m:apply>
+			    <m:ci type="fn">Y</m:ci>
+			    <m:ci>
+			      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			    </m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">f</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci> 
+			<m:ci>
+			  <m:msub><m:mi>y</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci> 
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:ci type="fn"><m:msub>
+			<m:mi>r</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>Y</m:mi>
+			</m:mrow>
+		      </m:msub></m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>  
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:mean/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:mean/>
+		      <m:apply>
+			<m:ci type="fn">Y</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>  
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	</item>
+      </list>
+
+      For Deterministic Random Processes which depend
+      deterministically on the random variable
+      <m:math><m:ci>α</m:ci></m:math> (or some function of it),
+      we can simplify the above integrals by expressing the joint pdf
+      in that space. E.g. for auto-correlation:
+
+      <equation id="eq5">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn"><m:msub>
+		  <m:mi>r</m:mi>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mi>X</m:mi>
+		  </m:mrow>
+		</m:msub></m:ci>
+	      <m:ci>
+		<m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+	      </m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">X</m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>α</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">X</m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>α</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar>
+		<m:ci>α</m:ci>
+	      </m:bvar>
+	      <m:domainofapplication>
+		<m:ci></m:ci>
+	      </m:domainofapplication>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">x</m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci> 
+		  <m:ci>α</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">x</m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci> 
+		  <m:ci>α</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">f</m:ci>
+		  <m:ci>α</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+    </para>   
+  </content>
+  
+</document>

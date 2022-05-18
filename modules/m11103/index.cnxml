@@ -1,0 +1,574 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Ergodicity</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>c389f630-47eb-40e7-bab6-161449c12393</md:uuid>
+</metadata>
+  
+  <content>
+    <para id="para1">
+      Many stationary random processes are also
+      <term>Ergodic</term>. For an Ergodic Random Process we can
+      exchange <term>Ensemble Averages</term> for <term>Time
+      Averages</term>. This is equivalent to assuming that our
+      ensemble of random signals is just composed of all possible time
+      shifts of a single signal 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">X</m:ci>
+	  <m:ci>t</m:ci>
+	</m:apply>
+      </m:math>. 
+    </para>
+
+    <para id="para2">
+      Recall from our previous discussion of <link document="m11068" target-id="eq4" strength="2">Expectation</link> that the
+      expectation of a function of a random variable is given by
+
+      <equation id="eq11">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:ci type="fn">g</m:ci>
+		<m:ci>X</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>x</m:ci></m:bvar>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">g</m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      This result also applies if we have a <term>random
+      function</term> 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">g</m:ci>
+	  <m:ci>.</m:ci>
+	</m:apply>
+      </m:math> of a <term>deterministic variable</term> such as
+      <m:math><m:ci>t</m:ci></m:math>. Hence 
+
+      <equation id="eq12">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:ci type="fn">g</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>t</m:ci></m:bvar>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">g</m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>T</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      
+      Because <m:math><m:ci>t</m:ci></m:math> is linearly increasing,
+      the pdf 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">
+	    <m:msub><m:mi>f</m:mi><m:mi>T</m:mi></m:msub>
+	  </m:ci>
+	  <m:ci>t</m:ci>
+	</m:apply>
+      </m:math> is uniform over our measurement interval, say 
+      <m:math>
+	<m:apply>
+	  <m:minus/>
+	  <m:ci>T</m:ci>
+	</m:apply>
+      </m:math> to <m:math><m:ci>T</m:ci></m:math>, and will be 
+      <m:math>
+	<m:apply>
+	  <m:divide/>
+	  <m:cn>1</m:cn>
+	  <m:apply>
+	    <m:times/>
+	    <m:cn>2</m:cn>
+	    <m:ci>T</m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math> to make the pdf valid (integral = 1). Hence 
+
+       <equation id="eq13">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:ci type="fn">g</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>t</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:ci>T</m:ci>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>T</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">g</m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:ci>T</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:times/>
+		  <m:cn>2</m:cn>
+		  <m:ci>T</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>t</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>T</m:ci>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>T</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:ci type="fn">g</m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      
+      If we wish to measure over all time, then we take the limit as 
+      <m:math>
+	<m:apply>
+	  <m:tendsto/>
+	  <m:ci>T</m:ci>
+	  <m:infinity/>
+	</m:apply>
+      </m:math>. 
+    </para>
+
+    <para id="para3">
+      This leads to the following results for Ergodic WSS random
+      processes:
+
+      <list id="list1">
+	<item>
+	  <term>Mean Ergodic:</term>
+	  
+	  <equation id="eq14">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:ci type="fn">X</m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>x</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>x</m:ci>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>f</m:mi>
+			  <m:mrow>
+			    <m:mi>X</m:mi>
+			    <m:mo>(</m:mo>
+			    <m:mi>t</m:mi>
+			    <m:mo>)</m:mo>
+			  </m:mrow>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>x</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:limit/>
+		  <m:bvar><m:ci>T</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:infinity/>
+		  </m:lowlimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:ci>T</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar><m:ci>t</m:ci></m:bvar>
+		      <m:lowlimit>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>T</m:ci>
+			</m:apply>
+		      </m:lowlimit>
+		      <m:uplimit>
+			<m:ci>T</m:ci>
+		      </m:uplimit>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>t</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	</item>
+
+	<item>
+	  <term>Correlation Ergodic:</term>
+	  
+	  <equation id="eq15">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn"><m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>X</m:mi>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+		
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">X</m:ci>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">X</m:ci>
+		      <m:apply>
+			<m:plus/>
+			<m:ci>t</m:ci>
+			<m:ci>τ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:bvar>
+		    <m:lowlimit>
+		      <m:apply>
+			<m:minus/>
+			<m:infinity/>
+		      </m:apply>
+		    </m:lowlimit>
+		    <m:uplimit>
+		      <m:infinity/>
+		    </m:uplimit>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub><m:mi>f</m:mi>
+			    <m:mrow>
+			      <m:mrow>
+				<m:mi>X</m:mi>
+				<m:mo>(</m:mo>
+				<m:mi>t</m:mi>
+				<m:mo>)</m:mo>
+			      </m:mrow>
+			      <m:mo>,</m:mo>
+			      <m:mrow>
+				<m:mi>X</m:mi>
+				<m:mo>(</m:mo>
+				<m:mi>t</m:mi>
+				<m:mo>+</m:mo>
+				<m:mi>τ</m:mi>
+				<m:mo>)</m:mo>
+			      </m:mrow>
+			    </m:mrow>
+			  </m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>	
+		
+		<m:apply>
+		  <m:limit/>
+		  <m:bvar><m:ci>T</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:infinity/>
+		  </m:lowlimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:ci>T</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar><m:ci>t</m:ci></m:bvar>
+		      <m:lowlimit>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>T</m:ci>
+			</m:apply>
+		      </m:lowlimit>
+		      <m:uplimit>
+			<m:ci>T</m:ci>
+		      </m:uplimit>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:ci type="fn">X</m:ci>
+			  <m:ci>t</m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:ci type="fn">X</m:ci>
+			  <m:apply>
+			    <m:plus/>
+			    <m:ci>t</m:ci>
+			    <m:ci>τ</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  and similarly for other correlation or covariance
+	  functions. 
+	</item>
+      </list>
+
+      <emphasis>Ergodicity greatly simplifies the measurement of WSS
+      processes</emphasis> and it is often assumed when estimating
+      moments (or correlations) for such processes.
+    </para>
+
+    <para id="para5">
+      In almost all practical situations, processes are stationary
+      <emphasis>only over some limited time interval</emphasis> (say 
+      <m:math>
+	<m:ci>
+	  <m:msub><m:mi>T</m:mi><m:mn>1</m:mn></m:msub>
+	</m:ci>
+      </m:math> to 
+       <m:math>
+	<m:ci>
+	  <m:msub><m:mi>T</m:mi><m:mn>2</m:mn></m:msub>
+	</m:ci>
+      </m:math>) rather than over all time. In that case we
+      deliberately keep the limits of the integral finite and adjust 
+      <m:math>
+	<m:ci>
+	  <m:msub><m:mi>f</m:mi>
+	    <m:mrow>
+	      <m:mi>X</m:mi>
+	      <m:mo>(</m:mo>
+	      <m:mi>t</m:mi>
+	      <m:mo>)</m:mo>
+	    </m:mrow>
+	  </m:msub>
+	</m:ci>
+      </m:math> accordingly. For example the autocorrelation function
+      is then measured using 
+
+      <equation id="eq16">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>r</m:mi>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mi>X</m:mi>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>τ</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:minus/>
+		  <m:ci>
+		    <m:msub><m:mi>T</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>T</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>t</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:ci>
+		    <m:msub><m:mi>T</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>
+		    <m:msub><m:mi>T</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">X</m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">X</m:ci>
+		    <m:apply>
+		      <m:plus/>
+		      <m:ci>t</m:ci>
+		      <m:ci>τ</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      This avoids including samples of <m:math><m:ci>X</m:ci></m:math>
+      which have incorrect statistics, but it can suffer from errors
+      due to limited sample size.
+    </para>   
+  </content>
+  
+</document>

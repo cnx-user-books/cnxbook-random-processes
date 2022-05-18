@@ -1,0 +1,2574 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Spectral Properties of Random Signals</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>afc6eb32-2fbd-40a6-8bba-83be7c7b7025</md:uuid>
+</metadata>
+  
+  <content>
+    <section id="sec1">
+      <title>Relation of Power spectral Density to ACF</title>
+      <para id="sec1para1">
+	The autocorrelation function (ACF) of an ergodic random signal
+	tells us how correlated the signal is with itself as a
+	function of time shift 
+	<m:math><m:ci>τ</m:ci></m:math>. In particular, for 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>τ</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math> 
+	
+	<equation id="eq17">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>X</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:cn>0</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:limit/>
+		<m:bvar><m:ci>T</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:infinity/>
+		</m:lowlimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:ci>T</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>t</m:ci></m:bvar>
+		    <m:lowlimit>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>T</m:ci>
+		      </m:apply>
+		    </m:lowlimit>
+		    <m:uplimit>
+		      <m:ci>T</m:ci>
+		    </m:uplimit>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>t</m:ci>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:ci>mean  power  of  X(t)</m:ci>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	Note that if 
+	<m:math>
+	  <m:apply>
+	    <m:tendsto/>
+	    <m:ci>T</m:ci>
+	    <m:infinity/>
+	  </m:apply>
+	</m:math>, for all <m:math><m:ci>τ</m:ci></m:math>
+
+	<equation id="eq18">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>X</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>τ</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:leq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>X</m:mi>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>X</m:mi>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	As <m:math><m:ci>τ</m:ci></m:math> becomes large, 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:apply>
+	      <m:plus/>
+	      <m:ci>t</m:ci>
+	      <m:ci>τ</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math> will usually become decorrelated and, as long as
+	<m:math><m:ci>X</m:ci></m:math> is zero mean, 
+	<m:math>
+	  <m:ci type="fn">
+	    <m:msub>
+	      <m:mi>r</m:mi>
+	      <m:mrow>
+		<m:mi>X</m:mi>
+		<m:mi>X</m:mi>
+	      </m:mrow>
+	    </m:msub>
+	  </m:ci>
+	</m:math> will tend to zero. 
+      </para>
+
+      <para id="sec1para3">
+	Hence the ACF will have its <emphasis>maximum at</emphasis> 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>τ</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math> and decay symmetrically to zero (or to 
+	<m:math>
+	  <m:apply>
+	    <m:power/>
+	    <m:ci>μ</m:ci>
+	    <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math>, if 
+	<m:math>
+	  <m:apply>
+	    <m:neq/>
+	    <m:ci>μ</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>) as 
+	<m:math>
+	  <m:apply>
+	    <m:abs/>
+	    <m:ci>τ</m:ci>
+	  </m:apply>
+	</m:math> increases. 
+      </para>
+
+      <para id="sec1para4">
+	The width of the ACF (to say its half-power points) tells us
+	how slowly <m:math><m:ci>X</m:ci></m:math> is fluctuating or
+	how band-limited it is. <link target-id="figure1b" strength="2"/>
+	shows how the ACF of a rapidly fluctuating (wide-band) random
+	signal, as in <link target-id="figure1a" strength="2"/> upper
+	plot, decays quickly to zero as 
+	<m:math>
+	  <m:apply>
+	    <m:abs/>
+	    <m:ci>τ</m:ci>
+	  </m:apply>
+	</m:math> increases, whereas, for a slowly fluctuating
+	signal, as in <link target-id="figure1a" strength="2"/> lower
+	plot, the ACF decays much more slowly.
+      </para>
+      
+      <figure id="figure1" orient="vertical">
+	<subfigure id="figure1a">
+	  <media id="idm7287616" alt=""><image src="../../media/figure1a-6483.png" mime-type="image/png"/></media>
+	</subfigure>
+	<subfigure id="figure1b">
+	  <media id="idm224432" alt=""><image src="../../media/figure1b-ce14.png" mime-type="image/png"/></media>
+	</subfigure>
+	<subfigure id="figure1c">
+	  <media id="idp2738736" alt=""><image src="../../media/figure1c-7b89.png" mime-type="image/png"/></media>
+	</subfigure>
+	<caption>
+	  Illustration of the different properties of wide band
+	  (upper) and narrow band (lower) random signals: (a) the
+	  signal waveforms with unit variance; (b) their
+	  autocorrelation functions (ACFs); and (c) their power
+	  spectral densities (PSDs). In (b) and (c), the thin
+	  fluctuating curves shows the actual values measured from
+	  4000 samples of the random waveforms while the thick smooth
+	  curves show the limits of the ACF and PSD as the lengths of
+	  the waveforms tend to infinity.
+	</caption>
+      </figure>
+
+      <para id="sec1para5">
+	<emphasis>The ACF measures an entirely different aspect of
+	randomness from amplitude distributions such as pdf and cdf.
+	</emphasis>
+      </para>
+
+      <para id="sec1para6">
+	As with deterministic signals, we may formalize our ideas of
+	rates of fluctuation by transforming to the <term>Frequency
+	(Spectral) Domain</term> using the <term>Fourier
+	Transform</term>: 
+
+	<equation id="eq19">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mo>ℱ</m:mo>
+		    <m:mi>u</m:mi>
+		  </m:msub>
+		</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">FT</m:ci>
+		<m:apply>
+		  <m:ci type="fn">u</m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>t</m:ci></m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">u</m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:ci>ω</m:ci>
+			<m:ci>t</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	The <term>Power Spectral Density</term> (PSD) of a random
+	process <m:math><m:ci>X</m:ci></m:math> is defined to be the
+	Fourier Transform of its ACF:
+
+	<equation id="eq20">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">FT</m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>X</m:mi>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>τ</m:ci></m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+		      <m:mi>r</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>X</m:mi>
+			</m:mrow>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:ci>ω</m:ci>
+			<m:ci>τ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq21">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>X</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>τ</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:apply>
+		  <m:inverse/>
+		  <m:ci type="fn">FT</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>ω</m:ci></m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>ω</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:ci>ω</m:ci>
+			<m:ci>τ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+		
+	N.B. 
+	<m:math>
+	  <m:set>
+	    <m:apply>
+	      <m:ci type="fn">X</m:ci>
+	      <m:ci>t</m:ci>
+	    </m:apply>
+	  </m:set>
+	</m:math> must be <emphasis>at least</emphasis> Wide Sense
+	Stationary (WSS).	    
+      </para>
+
+      <para id="sec1para7">
+	From <link target-id="eq17" strength="2"/> and <link target-id="eq21" strength="2"/> we see that the mean signal power
+	is given by:
+
+	<equation id="eq22">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>X</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:cn>0</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>ω</m:ci></m:bvar>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>ω</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	     <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>f</m:ci></m:bvar>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		    <m:ci>f</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	Hence 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+	  </m:ci>
+	</m:math> has units of power per Hertz. Note that we must
+	integrate over <emphasis>all</emphasis> frequencies, both
+	positive and negative, to get the correct total power.
+      </para>
+
+      <para id="sec1para8">
+	<link target-id="figure1c" strength="2"/> shows how the PSDs of
+	the signals relate to the ACFs in <link target-id="figure1b" strength="2"/>. 
+      </para>
+
+      <para id="sec1para9">
+	Properties of PSDs for real-valued 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>: 
+
+	<list id="list2" list-type="enumerated">
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>  
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>ω</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </item>
+
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>  
+	    </m:math> is Real-valued
+	  </item>
+
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:geq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>  
+		<m:cn>0</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </item>
+	</list>
+
+	Properties 1 and 2 are because ACFs are real and symmetric
+	about 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>τ</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>; and 3 is because 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+	  </m:ci> 
+	</m:math> represents <emphasis>power</emphasis> density.
+      </para>
+    </section>
+
+    <section id="sec2">
+      <title>Linear system (filter) with WSS input</title>
+
+      <figure id="figure2">
+	<media id="idm5417376" alt=""><image src="../../media/figure2-84b2.png" mime-type="image/png"/></media>
+	<caption>
+	  Block diagram of a linear system with a random input signal, 
+	  <m:math>
+	    <m:apply>
+	      <m:ci type="fn">X</m:ci>
+	      <m:ci>t</m:ci>
+	    </m:apply>
+	  </m:math>.
+	</caption>
+      </figure>
+
+      <para id="sec2para1">
+	Let the linear system with input 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> and output 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">Y</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> have an impulse response 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">h</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>, so 
+
+	<equation id="eq23">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Y</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/> 
+		<m:apply>
+		  <m:ci type="fn">h</m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">X</m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>α</m:ci></m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">h</m:ci>
+		    <m:ci>α</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">X</m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>t</m:ci>
+		      <m:ci>α</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Then the ACF of <m:math><m:ci>Y</m:ci></m:math> is 
+
+	<equation id="eq24">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>Y</m:mi>
+		      <m:mi>Y</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">Y</m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">Y</m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:bvar>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:ci type="fn">h</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:bvar>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:ci type="fn">h</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:bvar>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:ci type="fn">h</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">h</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		       <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>
+		    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:bvar>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:ci type="fn">X</m:ci>
+			  <m:apply>
+			    <m:minus/>
+			    <m:ci>
+			      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			    </m:ci>
+			    <m:ci><m:msub>
+				<m:mi>α</m:mi>
+				<m:mn>1</m:mn>
+			      </m:msub></m:ci>
+			  </m:apply>
+			</m:apply>
+			<m:apply>
+			  <m:ci type="fn">X</m:ci>
+			  <m:apply>
+			    <m:minus/>
+			    <m:ci>
+			      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			    </m:ci>
+			    <m:ci>
+			      <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			    </m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	       <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>
+		    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:bvar>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>r</m:mi>
+			  <m:mrow>
+			    <m:mi>X</m:mi>
+			    <m:mi>X</m:mi>
+			  </m:mrow>
+			</m:msub>
+		      </m:ci>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	If <m:math><m:ci>X</m:ci></m:math> is WSS then 
+
+	<equation id="eq25">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>Y</m:mi>
+		      <m:mi>Y</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>τ</m:ci>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">Y</m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">Y</m:ci>
+		    <m:apply>
+		      <m:plus/>
+		      <m:ci>t</m:ci>
+		      <m:ci>τ</m:ci>		   
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>
+		    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:bvar>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>r</m:mi>
+			  <m:mrow>
+			    <m:mi>X</m:mi>
+			    <m:mi>X</m:mi>
+			  </m:mrow>
+			</m:msub>
+		      </m:ci>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:plus/>
+			  <m:ci>τ</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/> 
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>X</m:mi>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">h</m:ci>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">h</m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Taking Fourier transforms:
+
+	<equation id="eq26">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>S</m:mi><m:mi>Y</m:mi></m:msub>
+		</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:ci type="fn">FT</m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>Y</m:mi>
+			<m:mi>Y</m:mi>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>τ</m:ci></m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:bvar>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+		      </m:bvar>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:ci type="fn">h</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:ci type="fn">h</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:ci type="fn">
+			    <m:msub>
+			      <m:mi>r</m:mi>
+			      <m:mrow>
+				<m:mi>X</m:mi>
+				<m:mi>X</m:mi>
+			      </m:mrow>
+			    </m:msub>
+			  </m:ci>
+			  <m:apply>
+			    <m:minus/>
+			    <m:apply>
+			      <m:plus/>
+			      <m:ci>τ</m:ci>
+			      <m:ci><m:msub>
+				  <m:mi>α</m:mi>
+				  <m:mn>1</m:mn>
+				</m:msub> </m:ci>
+			    </m:apply>
+			    <m:ci><m:msub>
+				<m:mi>α</m:mi>
+				<m:mn>2</m:mn>
+			      </m:msub></m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:ci>ω</m:ci>
+			<m:ci>τ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>
+		    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:bvar>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar><m:ci>τ</m:ci></m:bvar>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:ci type="fn">
+			    <m:msub>
+			      <m:mi>r</m:mi>
+			      <m:mrow>
+				<m:mi>X</m:mi>
+				<m:mi>X</m:mi>
+			      </m:mrow>
+			    </m:msub>
+			  </m:ci>
+			  <m:apply>
+			    <m:minus/>
+			    <m:apply>
+			      <m:plus/>
+			      <m:ci>τ</m:ci>
+			      <m:ci><m:msub>
+				  <m:mi>α</m:mi>
+				  <m:mn>1</m:mn>
+				</m:msub></m:ci>
+			    </m:apply>
+			    <m:ci><m:msub>
+				<m:mi>α</m:mi>
+				<m:mn>2</m:mn>
+			      </m:msub></m:ci>
+			  </m:apply>
+			</m:apply>
+			<m:apply>
+			  <m:exp/>
+			  <m:apply>
+			    <m:minus/>
+			    <m:apply>
+			      <m:times/>
+			      <m:imaginaryi/>
+			      <m:ci>ω</m:ci>
+			      <m:ci>τ</m:ci>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>
+		    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:bvar>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar><m:ci>λ</m:ci></m:bvar>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:ci type="fn">
+			    <m:msub>
+			      <m:mi>r</m:mi>
+			      <m:mrow>
+				<m:mi>X</m:mi>
+				<m:mi>X</m:mi>
+			      </m:mrow>
+			    </m:msub>
+			  </m:ci>
+			  <m:ci>λ</m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:exp/>
+			  <m:apply>
+			    <m:minus/>
+			    <m:apply>
+			      <m:times/>
+			      <m:imaginaryi/>
+			      <m:ci>ω</m:ci>
+			      <m:apply>
+				<m:plus/>
+				<m:apply>
+				  <m:minus/>
+				  <m:ci>λ</m:ci>
+				  <m:ci><m:msub>
+				      <m:mi>α</m:mi>
+				      <m:mn>1</m:mn>
+				    </m:msub></m:ci>
+				</m:apply>
+				<m:ci><m:msub>
+				    <m:mi>α</m:mi>
+				    <m:mn>2</m:mn>
+				  </m:msub></m:ci>
+			      </m:apply>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:ci>ω</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:times/>
+			  <m:imaginaryi/>
+			  <m:ci>ω</m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>λ</m:ci></m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub>
+			  <m:mi>r</m:mi>
+			  <m:mrow>
+			    <m:mi>X</m:mi>
+			    <m:mi>X</m:mi>
+			  </m:mrow>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>λ</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:times/>
+			  <m:imaginaryi/>
+			  <m:ci>ω</m:ci>
+			  <m:ci>λ</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:conjugate/>
+		  <m:apply>
+		    <m:ci type="fn">ℋ</m:ci>
+		    <m:ci>ω</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">ℋ</m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	where 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">ℋ</m:ci>
+	      <m:ci>ω</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:ci type="fn">FT</m:ci>
+	      <m:apply>
+		<m:ci type="fn">h</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>. i.e: 
+
+	<equation id="eq27">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>S</m:mi><m:mi>Y</m:mi></m:msub>
+		</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:power/>
+		  <m:apply>
+		    <m:abs/>
+		    <m:apply>
+		      <m:ci type="fn">ℋ</m:ci>
+		      <m:ci>ω</m:ci>
+		    </m:apply>  
+		  </m:apply>
+		  <m:cn>2</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Hence the PSD of <m:math><m:ci>Y</m:ci></m:math> = the PSD of
+	<m:math><m:ci>X</m:ci></m:math>
+	<m:math><m:mo>×</m:mo></m:math> the power gain 
+	<m:math>
+	  <m:apply>
+	    <m:power/>
+	    <m:apply>
+	      <m:abs/>
+	      <m:ci>ℋ</m:ci>
+	    </m:apply>
+	    <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math> of the system at frequency
+	<m:math><m:ci>ω</m:ci></m:math>. 
+      </para>
+
+      <para id="sec2para2">
+	Thus if a large and important system is subject to random
+	perturbations (e.g. a power plant subject to random load
+	fluctuations), we may measure 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>r</m:mi>
+		<m:mrow>
+		  <m:mi>X</m:mi>
+		  <m:mi>X</m:mi>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>τ</m:ci>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>r</m:mi>
+		<m:mrow>
+		  <m:mi>Y</m:mi>
+		  <m:mi>Y</m:mi>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>τ</m:ci>
+	  </m:apply>
+	</m:math>, transform these to 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+	    </m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub><m:mi>S</m:mi><m:mi>Y</m:mi></m:msub>
+	    </m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math>, and hence obtain 
+
+	<equation id="eq28">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:abs/>
+		<m:apply>
+		  <m:ci type="fn">ℋ</m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply> 
+	      </m:apply>
+	      <m:apply>
+		<m:root/>
+		<m:apply>
+		  <m:divide/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>S</m:mi><m:mi>Y</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>ω</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>ω</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Hence we may measure the system frequency response
+	<emphasis>without taking the plant off line. But</emphasis>
+	this does not give any information about the
+	<emphasis>phase</emphasis> of 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">ℋ</m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>   
+	</m:math>. 
+      </para>
+
+      <para id="sec2para3">
+	However, if instead we measure the <term>Cross-Correlation
+	Function</term> (CCF) between <m:math><m:ci>X</m:ci></m:math>
+	and <m:math><m:ci>Y</m:ci></m:math>, we get:
+
+	<equation id="eq29">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>X</m:mi>
+		      <m:mi>Y</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">X</m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">Y</m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">X</m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:bvar>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:ci type="fn">h</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			  <m:ci>
+			    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">h</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">X</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">X</m:ci>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>
+		    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">h</m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:ci>
+			  <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">X</m:ci>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>
+			    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			  <m:ci><m:msub>
+			      <m:mi>α</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub></m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	       <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>
+		    <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">h</m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>r</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>X</m:mi>
+			</m:mrow>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>
+			<m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>α</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	If 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>, and hence 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">Y</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>, are WSS:
+
+	<equation id="eq30">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>X</m:mi>
+		      <m:mi>Y</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>τ</m:ci>
+	      </m:apply>
+	      
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">X</m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">Y</m:ci>
+		    <m:apply>
+		      <m:plus/>
+		      <m:ci>t</m:ci>
+		      <m:ci>τ</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>α</m:ci></m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">h</m:ci>
+		    <m:ci>α</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub>
+			<m:mi>r</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>X</m:mi>
+			</m:mrow>
+		      </m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>τ</m:ci>
+		      <m:ci>α</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/>
+		<m:apply>
+		  <m:ci type="fn">h</m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>X</m:mi>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	and taking Fourier transforms: 
+
+	<equation id="eq31">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>	  
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>S</m:mi>
+		    <m:mrow>
+		      <m:mi>X</m:mi>
+		      <m:mi>Y</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">FT</m:ci>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>Y</m:mi>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">ℋ</m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation> 
+
+	where 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>S</m:mi>
+		<m:mrow>
+		  <m:mi>X</m:mi>
+		  <m:mi>Y</m:mi>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math> is known as the <term>Cross Spectral Density</term>
+	between <m:math><m:ci>X</m:ci></m:math> and
+	<m:math><m:ci>Y</m:ci></m:math>. Therefore, 
+
+	<equation id="eq32">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">ℋ</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub>
+		      <m:mi>S</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>Y</m:mi>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Hence we obtain the <term>amplitude and phase</term> of 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">ℋ</m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply> 
+	</m:math>. As before, this is achieved without taking the
+	plant off line.
+      </para>
+
+      <para id="sec2para4">
+	Note that for WSS processes, 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>r</m:mi>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mi>Y</m:mi>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>τ</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>r</m:mi>
+		  <m:mrow>
+		    <m:mi>Y</m:mi>
+		    <m:mi>X</m:mi>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:minus/>
+		<m:ci>τ</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math> and that (unlike 
+	<m:math>
+	  <m:ci type="fn">
+	    <m:msub>
+	      <m:mi>r</m:mi>
+	      <m:mrow>
+		<m:mi>X</m:mi>
+		<m:mi>X</m:mi>
+	      </m:mrow>
+	    </m:msub>
+	  </m:ci>
+	</m:math> and 
+	<m:math>
+	  <m:ci type="fn">
+	    <m:msub>
+	      <m:mi>r</m:mi>
+	      <m:mrow>
+		<m:mi>Y</m:mi>
+		<m:mi>Y</m:mi>
+	      </m:mrow>
+	    </m:msub>
+	  </m:ci>
+	</m:math>) these need not be symmetric about 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>τ</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>. Hence the cross spectral density 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>S</m:mi>
+		<m:mrow>
+		  <m:mi>X</m:mi>
+		  <m:mi>Y</m:mi>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math> need not be purely real (unlike 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+	    </m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math>), and the phase of 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub>
+		<m:mi>S</m:mi>
+		<m:mrow>
+		  <m:mi>X</m:mi>
+		  <m:mi>Y</m:mi>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math> gives the phase of 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">ℋ</m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math>.
+      </para>
+    </section>
+
+    <section id="sec3">
+      <title>Physical Interpretation of Power Spectral Density</title>
+
+      <figure id="figure3">
+	<media id="idp2192832" alt=""><image src="../../media/figure3.png" mime-type="image/png"/></media>
+	<caption>
+	  Narrowband filter frequency response and PSD of filter input
+	  and output.
+	</caption>
+      </figure>
+      
+      <para id="sec3para1">
+	Let us pass 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> through a narrow-band filter of bandwidth 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:mo>δ</m:mo>
+	      <m:ci>ω</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:cn>2</m:cn>
+	      <m:pi/>
+	      <m:apply>
+		<m:mo>δ</m:mo>
+		<m:ci>f</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>, as shown in <link target-id="figure3" strength="2"/>: 
+
+	<equation id="eq33">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">ℋ</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	      <m:piecewise>
+		<m:piece>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:leq/>
+		    <m:apply>
+		      <m:lt/>
+		      <m:ci>
+			<m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+		      </m:ci>
+		      <m:apply>
+			<m:abs/>
+			<m:ci>ω</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:plus/>
+		      <m:ci>
+			<m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+		      </m:ci>
+		      <m:apply>
+			<m:mo>δ</m:mo>
+			<m:ci>ω</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:piece>
+		<m:otherwise>
+		  <m:cn>0</m:cn>
+		</m:otherwise>
+	      </m:piecewise>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	      
+	Find average power at the filter output (shaded area in <link target-id="figure3" strength="2"/>, divided by 
+	<m:math>
+	  <m:apply>
+	    <m:times/>
+	    <m:cn>2</m:cn>
+	    <m:pi/>
+	  </m:apply>
+	</m:math>): 
+
+	<equation id="eq34">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>
+		<m:msub><m:mi>P</m:mi><m:mn>0</m:mn></m:msub>
+	      </m:ci>
+
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>Y</m:mi>
+		      <m:mi>Y</m:mi>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:cn>0</m:cn>
+	      </m:apply>
+
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>ω</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>S</m:mi><m:mi>Y</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>ω</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>ω</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>ω</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:abs/>
+			<m:apply>
+			  <m:ci type="fn">ℋ</m:ci>
+			  <m:ci>ω</m:ci>
+			</m:apply>  
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:approx/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar><m:ci>ω</m:ci></m:bvar>
+		      <m:lowlimit>
+			<m:apply>
+			  <m:minus/>
+			  <m:apply>
+			    <m:plus/>
+			    <m:ci>
+			      <m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+			    </m:ci>
+			    <m:apply>
+			      <m:mo>δ</m:mo>
+			      <m:ci>
+				<m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+			      </m:ci>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:lowlimit>
+		      <m:uplimit>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>
+			    <m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+			  </m:ci>
+			</m:apply>
+		      </m:uplimit>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+			</m:ci>
+			<m:ci>ω</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar><m:ci>ω</m:ci></m:bvar>
+		      <m:lowlimit>
+			<m:ci>
+			  <m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+			</m:ci>
+		      </m:lowlimit>
+		      <m:uplimit>
+			<m:apply>
+			  <m:plus/>
+			  <m:ci>
+			    <m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+			  </m:ci>
+			  <m:apply>
+			    <m:mo>δ</m:mo>
+			    <m:ci>
+			      <m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+			    </m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:uplimit>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+			</m:ci>
+			<m:ci>ω</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:cn>2</m:cn>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:mo>δ</m:mo>
+		    <m:ci>
+		      <m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	since 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:minus/>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+	      </m:ci>
+	      <m:ci>ω</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>. Expressed in terms of 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>
+	      <m:msub><m:mi>f</m:mi><m:mn>0</m:mn></m:msub>
+	    </m:ci>
+	    <m:apply>
+	      <m:divide/>
+	      <m:ci>
+		<m:msub><m:mi>ω</m:mi><m:mn>0</m:mn></m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:times/>
+		<m:cn>2</m:cn>
+		<m:pi/>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>: 
+
+	<equation id="eq35">
+	  <m:math>
+	    <m:apply>
+	      <m:approx/>
+	      <m:ci>
+		<m:msub><m:mi>P</m:mi><m:mn>0</m:mn></m:msub>
+	      </m:ci>  
+	      <m:apply>
+		<m:times/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		    <m:ci>
+		      <m:msub><m:mi>f</m:mi><m:mn>0</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:mo>δ</m:mo>
+		  <m:ci>f</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	with the factor of 2 appearing because our filter responds to
+	both negative and positive frequency components of
+	<m:math><m:ci>X</m:ci></m:math>. 
+      </para>
+
+      <para id="sec3para2">
+	Hence 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+	  </m:ci>
+	</m:math> is indeed a <term>Power Spectral Density</term> with
+	units 
+	<m:math>
+	  <m:apply>
+	    <m:divide/>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>V</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	    <m:ci>Hz</m:ci>
+	  </m:apply>
+	</m:math> (assuming unit impedance).
+      </para>
+    </section>
+
+  </content> 
+</document>

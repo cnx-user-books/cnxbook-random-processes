@@ -1,0 +1,1472 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Conditional Probabilities and Bayes' Rule</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>92bc6b92-f668-483e-bab3-f9c0a33526f2</md:uuid>
+</metadata>
+
+  <content>    
+    <para id="para1">
+      If <m:math><m:ci>A</m:ci></m:math> and
+      <m:math><m:ci>B</m:ci></m:math> are two separate but possibly
+      dependent random events, then:
+
+      <list id="list1" list-type="enumerated">
+	<item>
+	  Probability of <m:math><m:ci>A</m:ci></m:math> and
+	  <m:math><m:ci>B</m:ci></m:math> occurring together =
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:apply>
+		<m:mo>,</m:mo>
+		<m:ci>A</m:ci>
+		<m:ci>B</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</item>
+
+	<item>
+	  The conditional probability of
+	  <m:math><m:ci>A</m:ci></m:math>, given that
+	  <m:math><m:ci>B</m:ci></m:math> occurs =
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:condition><m:ci>B</m:ci></m:condition>
+	      <m:ci>A</m:ci>
+	    </m:apply>
+	  </m:math>
+	</item>
+	
+	<item>
+	  The conditional probability of
+	  <m:math><m:ci>B</m:ci></m:math>, given that
+	  <m:math><m:ci>A</m:ci></m:math> occurs =
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:condition><m:ci>A</m:ci></m:condition>
+	      <m:ci>B</m:ci>
+	    </m:apply>
+	  </m:math>
+	</item>
+      </list>
+
+      From elementary rules of probability (Venn diagrams): 
+      
+      <equation id="eq7">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:apply>
+		<m:mo>,</m:mo>
+		<m:ci>A</m:ci>
+		<m:ci>B</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:condition><m:ci>B</m:ci></m:condition>
+		<m:ci>A</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:ci>B</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:condition><m:ci>A</m:ci></m:condition>
+		<m:ci>B</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:ci>A</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      Dividing the right-hand pair of expressions by 
+      <m:math>
+	<m:apply>
+	  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	  <m:ci>B</m:ci>
+	</m:apply>
+      </m:math> gives Bayes' rule: 
+
+      <equation id="eq8">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>	
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:condition><m:ci>B</m:ci></m:condition>
+	      <m:ci>A</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:condition><m:ci>A</m:ci></m:condition>
+		  <m:ci>B</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:ci>A</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:ci>B</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      In problems of probabilistic inference, we are often trying to
+      estimate the most probable underlying model for a random
+      process, based on some observed data or evidence.  If
+      <m:math><m:ci>A</m:ci></m:math> represents a given set of model
+      parameters, and <m:math><m:ci>B</m:ci></m:math> represents the
+      set of observed data values, then the terms in <link target-id="eq8" strength="2"/> are given the following terminology:
+
+      <list id="list2">
+	<item>
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:ci>A</m:ci>
+	    </m:apply>  
+	  </m:math> is the <term>prior</term> probability of the model
+	  <m:math><m:ci>A</m:ci></m:math> (in the absence of any evidence);
+	</item>
+	<item>
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:ci>B</m:ci> </m:apply> </m:math> is the probability
+	      of the <term>evidence</term>
+	      <m:math><m:ci>B</m:ci></m:math>;
+	</item>
+	<item>
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:condition><m:ci>A</m:ci></m:condition> <m:ci>B</m:ci>
+	      </m:apply> </m:math> is the <term>likelihood</term> that
+	      the evidence <m:math><m:ci>B</m:ci></m:math> was
+	      produced, given that the model was
+	      <m:math><m:ci>A</m:ci></m:math>;
+	</item>
+	<item>
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:condition><m:ci>B</m:ci></m:condition> 
+	      <m:ci>A</m:ci>
+	    </m:apply>
+	  </m:math>
+	  is the <term>posterior</term> probability of the model being
+	  <m:math><m:ci>A</m:ci></m:math>, given that the evidence is
+	  <m:math><m:ci>B</m:ci></m:math>.
+	</item>
+      </list>
+
+      Quite often, we try to find the model
+      <m:math><m:ci>A</m:ci></m:math> which maximizes the posterior
+      <m:math>
+	<m:apply>
+	  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	  <m:condition><m:ci>B</m:ci></m:condition>
+	  <m:ci>A</m:ci>
+	</m:apply> 
+      </m:math>.  This is known as <term>maximum a posteriori</term> or
+      <term>MAP</term> model selection.
+    </para>
+
+    <para id="para3">
+      The following example illustrates the concepts of Bayesian model
+      selection.
+    </para>
+
+    <example id="example1">
+      <title>Loaded Dice</title>
+      
+      <para id="example1para1">
+	Problem:
+      </para>
+      
+      <para id="example1para2">
+	Given a tub containing 100 six-sided dice, in which one die
+	is known to be loaded towards the six to a specified extent,
+	derive an expression for the probability that, after a given
+	set of throws, an arbitrarily chosen die is the loaded one?
+	Assume the other 99 dice are all fair (not loaded in any
+	way). The loaded die is known to have the following pmf: 
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>p</m:mi><m:mi>L</m:mi></m:msub>
+	      </m:ci>
+	      <m:cn>1</m:cn>
+	    </m:apply>
+	    <m:cn>0.05</m:cn>
+	  </m:apply>
+	</m:math>
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:set>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>p</m:mi><m:mi>L</m:mi></m:msub>
+		</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	      <m:ci>…</m:ci>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>p</m:mi><m:mi>L</m:mi></m:msub>
+		</m:ci>
+		<m:cn>5</m:cn>
+	      </m:apply>
+	    </m:set>
+	    <m:cn>0.15</m:cn>
+	  </m:apply>
+	</m:math>
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>p</m:mi><m:mi>L</m:mi></m:msub>
+	      </m:ci>
+	      <m:cn>6</m:cn>
+	    </m:apply>
+	    <m:cn>0.35</m:cn>
+	  </m:apply>
+	</m:math>
+
+	Here derive a good strategy for finding the loaded die from
+	the tub.
+      </para>
+      
+      <para id="exe1para3">
+	Solution:
+      </para>
+
+      <para id="exe1para4">
+	The pmfs of the fair dice may be assumed to be: 
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:forall/>
+	    <m:bvar><m:ci>i</m:ci></m:bvar>
+	    <m:condition>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>i</m:ci>
+		<m:set>
+		  <m:cn>1</m:cn>
+		  <m:ci>…</m:ci>
+		  <m:cn>6</m:cn>
+		</m:set>
+	      </m:apply>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>p</m:mi><m:mi>F</m:mi></m:msub>
+		</m:ci>
+		<m:ci>i</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:cn>6</m:cn>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+
+	Let each die have one of two states, 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>S</m:ci>
+	    <m:ci>L</m:ci>
+	  </m:apply>
+	</m:math> if it is loaded and 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>S</m:ci>
+	    <m:ci>F</m:ci>
+	  </m:apply>
+	</m:math> if it is fair. These are our two possible
+	<term>models</term> for the random process and they have
+	underlying pmfs given by 
+	<m:math>
+	  <m:set>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>p</m:mi><m:mi>L</m:mi></m:msub>
+	      </m:ci>
+	      <m:cn>1</m:cn>  
+	    </m:apply>
+	    <m:ci>…</m:ci>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>p</m:mi><m:mi>L</m:mi></m:msub>
+	      </m:ci>
+	      <m:cn>6</m:cn>  
+	    </m:apply>
+	  </m:set>
+	</m:math> and 
+	<m:math>
+	  <m:set>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>p</m:mi><m:mi>F</m:mi></m:msub>
+	      </m:ci>
+	      <m:cn>1</m:cn>  
+	    </m:apply>
+	    <m:ci>…</m:ci>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>p</m:mi><m:mi>F</m:mi></m:msub>
+	      </m:ci>
+	      <m:cn>6</m:cn>  
+	    </m:apply>
+	  </m:set>
+	</m:math> respectively. 
+      </para>
+
+      <para id="exe1para5">
+	After <m:math><m:ci>N</m:ci></m:math> throws of the chosen
+	die, let the sequence of throws be
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>
+	      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	    <m:set>
+	      <m:ci>
+		<m:msub><m:mi>θ</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci>
+	      <m:ci>…</m:ci>
+	      <m:ci>
+		<m:msub><m:mi>θ</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	    </m:set>
+	  </m:apply>
+	</m:math>, where each 
+	<m:math>
+	  <m:apply>
+	    <m:in/>
+	    <m:ci>
+	      <m:msub><m:mi>θ</m:mi><m:mi>i</m:mi></m:msub>
+	    </m:ci>
+	    <m:set>
+	      <m:cn>1</m:cn>
+	      <m:ci>…</m:ci>
+	      <m:cn>6</m:cn>
+	    </m:set>
+	  </m:apply>
+	</m:math>.  This is our <term>evidence</term>.
+      </para>
+
+      <para id="exe1para6">
+	We shall now calculate the probability that this die is the
+	loaded one.  We therefore wish to find the
+	<term>posterior</term> 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:ci>
+		<m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>S</m:ci>
+	      <m:ci>L</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>.
+      </para>
+      
+      <para id="exe1para7">
+	We cannot evaluate this directly, but we can evaluate the
+	<term>likelihoods</term>, 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>S</m:ci>
+		<m:ci>L</m:ci>
+	      </m:apply>
+	    </m:condition>
+	    <m:ci>
+	      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>S</m:ci>
+		<m:ci>F</m:ci>
+	      </m:apply>
+	    </m:condition>
+	    <m:ci>
+	      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math>, since we know the expected pmfs in each case.  We
+	also know the <term>prior</term> probabilities 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>S</m:ci>
+	      <m:ci>L</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>S</m:ci>
+	      <m:ci>F</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math> before we have carried out any throws, and these
+	are 
+	<m:math>
+	  <m:set>
+	    <m:cn>0.01</m:cn>
+	    <m:cn>0.99</m:cn>
+	  </m:set>
+	</m:math> since only one die in the tub of 100 is
+	loaded.  Hence we can use Bayes' rule: 
+
+	<equation id="eq9">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		<m:condition>
+		  <m:ci>
+		    <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		  </m:ci>
+		</m:condition>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>S</m:ci>
+		  <m:ci>L</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:condition>
+		      <m:apply>
+			<m:eq/>
+			<m:ci>S</m:ci>
+			<m:ci>L</m:ci>
+		      </m:apply>
+		    </m:condition>
+		    <m:ci>
+		      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>L</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		  <m:ci>
+		    <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	The denominator term 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:ci>
+	      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	  </m:apply> 
+	</m:math> is there to ensure that 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:ci>
+		<m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>S</m:ci>
+	      <m:ci>L</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:ci>
+		<m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>S</m:ci>
+	      <m:ci>F</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math> sum to unity (as they must). It can most easily be
+	calculated from: 
+
+	<equation id="eq10">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		<m:ci>
+		  <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		</m:ci>
+	      </m:apply> 
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>    
+		  <m:apply>
+		    <m:mo>,</m:mo>
+		    <m:ci>
+		      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>L</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>    
+		  <m:apply>
+		    <m:mo>,</m:mo>
+		    <m:ci>
+		      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>F</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:condition>
+		      <m:apply>
+			<m:eq/>
+			<m:ci>S</m:ci>
+			<m:ci>L</m:ci>
+		      </m:apply>
+		    </m:condition>
+		    <m:ci>
+		      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>L</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:condition>
+		      <m:apply>
+			<m:eq/>
+			<m:ci>S</m:ci>
+			<m:ci>F</m:ci>
+		      </m:apply>
+		    </m:condition>
+		    <m:ci>
+		      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>F</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation> 
+
+	so that 
+	<equation id="eq11">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		<m:condition>
+		  <m:ci>
+		    <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		  </m:ci>
+		</m:condition>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>S</m:ci>
+		  <m:ci>L</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:condition>
+		      <m:apply>
+			<m:eq/>
+			<m:ci>S</m:ci>
+			<m:ci>L</m:ci>
+		      </m:apply>
+		    </m:condition>
+		    <m:ci>
+		      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>L</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:plus/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		      <m:condition>
+			<m:apply>
+			  <m:eq/>
+			  <m:ci>S</m:ci>
+			  <m:ci>L</m:ci>
+			</m:apply>
+		      </m:condition>
+		      <m:ci>
+			<m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		      <m:apply>
+			<m:eq/>
+			<m:ci>S</m:ci>
+			<m:ci>L</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		      <m:condition>
+			<m:apply>
+			  <m:eq/>
+			  <m:ci>S</m:ci>
+			  <m:ci>F</m:ci>
+			</m:apply>
+		      </m:condition>
+		      <m:ci>
+			<m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		      <m:apply>
+			<m:eq/>
+			<m:ci>S</m:ci>
+			<m:ci>F</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:plus/>
+		  <m:cn>1</m:cn>
+		  <m:ci>
+		    <m:msub><m:mi>R</m:mi><m:mi>N</m:mi></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	where 
+
+	<equation id="eq12">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>
+		<m:msub><m:mi>R</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:condition>
+		      <m:apply>
+			<m:eq/>
+			<m:ci>S</m:ci>
+			<m:ci>F</m:ci>
+		      </m:apply>
+		    </m:condition>
+		    <m:ci>
+		      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>F</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:condition>
+		      <m:apply>
+			<m:eq/>
+			<m:ci>S</m:ci>
+			<m:ci>L</m:ci>
+		      </m:apply>
+		    </m:condition>
+		    <m:ci>
+		      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>L</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	To calculate the likelihoods, 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>S</m:ci>
+		<m:ci>L</m:ci>
+	      </m:apply>
+	    </m:condition>
+	    <m:ci>
+	      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>S</m:ci>
+		<m:ci>F</m:ci>
+	      </m:apply>
+	    </m:condition>
+	    <m:ci>
+	      <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math>, we simply take the product of the probabilities
+	of each throw occurring in the sequence of throws 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	  </m:ci>
+	</m:math>, given each of the two modules respectively (since
+	each new throw is independent of all previous throws, given
+	the model). So, after <m:math><m:ci>N</m:ci></m:math> throws,
+	these likelihoods will be given by:
+	
+	<equation id="eq13a">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		<m:condition>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>S</m:ci>
+		    <m:ci>L</m:ci>
+		  </m:apply>
+		</m:condition>
+		<m:ci>
+		  <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:product/>
+		<m:bvar><m:ci>i</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>N</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>p</m:mi><m:mi>L</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>θ</m:mi><m:mi>i</m:mi></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	and
+	<equation id="eq13b">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		<m:condition>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>S</m:ci>
+		    <m:ci>F</m:ci>
+		  </m:apply>
+		</m:condition>
+		<m:ci>
+		  <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:product/>
+		<m:bvar><m:ci>i</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>N</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>p</m:mi><m:mi>F</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>θ</m:mi><m:mi>i</m:mi></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	We can now substitute these probabilities into the above
+	expression for 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>R</m:mi><m:mi>N</m:mi></m:msub>
+	  </m:ci>
+	</m:math> and include 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	      <m:apply>
+		<m:eq/>
+		<m:ci>S</m:ci>
+		<m:ci>L</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>0.01</m:cn>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	      <m:apply>
+		<m:eq/>
+		<m:ci>S</m:ci>
+		<m:ci>F</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>0.99</m:cn>
+	  </m:apply>
+	</m:math> to get the desired a <term>posteriori</term>
+	probability 
+
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:ci>
+		<m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>S</m:ci>
+	      <m:ci>L</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math> after <m:math><m:ci>N</m:ci></m:math> throws using
+	<link target-id="eq11" strength="2"/>.
+      </para>
+
+      <para id="exe1para8">
+	We may calculate this iteratively by noting that 
+
+	<equation id="eq14a">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		<m:condition>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>S</m:ci>
+		    <m:ci>L</m:ci>
+		  </m:apply>
+		</m:condition>
+		<m:ci>
+		  <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		  <m:condition>
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>L</m:ci>
+		    </m:apply>
+		  </m:condition>
+		  <m:ci>
+		    <m:msub><m:mi>Θ</m:mi>
+		      <m:mrow>
+			<m:mi>N</m:mi>
+			<m:mo>-</m:mo>
+			<m:mn>1</m:mn>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>p</m:mi><m:mi>L</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>θ</m:mi><m:mi>n</m:mi></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	and
+	<equation id="eq14b">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		<m:condition>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>S</m:ci>
+		    <m:ci>F</m:ci>
+		  </m:apply>
+		</m:condition>
+		<m:ci>
+		  <m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		  <m:condition>
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>S</m:ci>
+		      <m:ci>F</m:ci>
+		    </m:apply>
+		  </m:condition>
+		  <m:ci>
+		    <m:msub><m:mi>Θ</m:mi>
+		      <m:mrow>
+			<m:mi>N</m:mi>
+			<m:mo>-</m:mo>
+			<m:mn>1</m:mn>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>p</m:mi><m:mi>F</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>θ</m:mi><m:mi>n</m:mi></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	so that 
+
+	<equation id="eq15">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>
+		<m:msub><m:mi>R</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:times/>
+		<m:ci>
+		  <m:msub><m:mi>R</m:mi>
+		    <m:mrow>
+		      <m:mi>N</m:mi>
+		      <m:mo>-</m:mo>
+		      <m:mn>1</m:mn>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:divide/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>p</m:mi><m:mi>F</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>θ</m:mi><m:mi>n</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>p</m:mi><m:mi>L</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>θ</m:mi><m:mi>n</m:mi></m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	where 
+
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>
+	      <m:msub><m:mi>R</m:mi><m:mn>0</m:mn></m:msub>
+	    </m:ci>
+	    <m:apply>
+	      <m:divide/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>S</m:ci>
+		  <m:ci>F</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>S</m:ci>
+		  <m:ci>L</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>99</m:cn>
+	  </m:apply>
+	</m:math>.  If we calculate this after every throw of the
+	current die being tested (i.e. as
+	<m:math><m:ci>N</m:ci></m:math> increases), then we can either
+	move on to test the next die from the tub if
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:ci>
+		<m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>S</m:ci>
+	      <m:ci>L</m:ci>
+	    </m:apply>
+	  </m:apply>  
+	</m:math> becomes sufficiently small (say 
+	<m:math>
+	  <m:apply>
+	    <m:mo>&lt;</m:mo>
+	    <m:apply>
+	      <m:power/>
+	      <m:cn>10</m:cn>
+	      <m:cn>-4</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>) or accept the current die as the loaded one when 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:ci>
+		<m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>S</m:ci>
+	      <m:ci>L</m:ci>
+	    </m:apply>
+	  </m:apply>  
+	</m:math> becomes large enough (say 
+	<m:math>
+	  <m:apply>
+	    <m:mo>&gt;</m:mo>
+	    <m:cn>0.995</m:cn>
+	  </m:apply>
+	</m:math>). (These thresholds correspond approximately to 
+	<m:math>
+	  <m:apply>
+	    <m:gt/>
+	    <m:ci>
+	      <m:msub><m:mi>R</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	    <m:apply>
+	      <m:power/>
+	      <m:cn>10</m:cn>
+	      <m:cn>4</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:lt/>
+	    <m:ci>
+	      <m:msub><m:mi>R</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	    <m:cn type="e-notation">5<m:sep/>-3</m:cn>
+	  </m:apply>
+	</m:math> respectively.)
+      </para>
+      
+      <para id="exe1para9">
+	The choice of these thresholds for 
+	<m:math>
+	  <m:apply>
+	    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>  
+	    <m:condition>
+	      <m:ci>
+		<m:msub><m:mi>Θ</m:mi><m:mi>N</m:mi></m:msub>
+	      </m:ci>
+	    </m:condition>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>S</m:ci>
+	      <m:ci>L</m:ci>
+	    </m:apply>
+	  </m:apply>  
+	</m:math> is a function of the desired tradeoff between
+	speed of searching versus the probability of failure to find
+	the loaded die, either by moving on to the next die even
+	when the current one is loaded, or by selecting a fair die
+	as the loaded one.
+      </para>
+
+      <para id="exe1para10">
+	The lower threshold, 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>
+	      <m:msub><m:mi>p</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	    <m:apply>
+	      <m:power/>
+	      <m:cn>10</m:cn>
+	      <m:cn>-4</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>, is the more critical, because it affects how long
+	we spend before discarding each fair die.  The probability of
+	correctly detecting all the fair dice before the loaded die
+	is reached is 
+	<m:math>
+	  <m:apply>
+	    <m:approx/>
+	    <m:apply>
+	      <m:power/>
+	      <m:apply>
+		<m:minus/>
+		<m:cn>1</m:cn>
+		<m:ci>
+		  <m:msub><m:mi>p</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:ci>n</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:minus/>
+	      <m:cn>1</m:cn>
+	      <m:apply>
+		<m:times/>
+		<m:ci>n</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>p</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>, where 
+	<m:math>
+	  <m:apply>
+	    <m:approx/>
+	    <m:ci>n</m:ci>
+	    <m:cn>50</m:cn>
+	  </m:apply>
+	</m:math> is the expected number of fair dice tested before
+	the loaded one is found. So the failure probability due to
+	incorrectly assuming the loaded die to be fair is
+	approximately 
+	<m:math>
+	  <m:apply>
+	    <m:approx/>
+	    <m:apply>
+	      <m:times/>
+	      <m:ci>n</m:ci>
+	      <m:ci>
+		<m:msub><m:mi>p</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci>
+	    </m:apply>
+	    <m:cn>0.005</m:cn>
+	  </m:apply>
+	</m:math>.
+      </para>
+
+      <para id="exe1para11">
+	The upper threshold, 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>
+	      <m:msub><m:mi>p</m:mi><m:mn>2</m:mn></m:msub>
+	    </m:ci>
+	    <m:cn>0.995</m:cn>
+	  </m:apply>
+	</m:math>, is much less critical on search speed, since the
+	<emphasis>loaded</emphasis> result only occurs once, so it is
+	a good idea to set it very close to unity. The failure
+	probability caused by selecting a fair die to be the loaded
+	one is just
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:minus/>
+	      <m:cn>1</m:cn>
+	      <m:ci>
+		<m:msub><m:mi>p</m:mi><m:mn>2</m:mn></m:msub>
+	      </m:ci>
+	    </m:apply>
+	    <m:cn>0.005</m:cn>
+	  </m:apply>
+	</m:math>.  Hence the 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>overall  failure  probability </m:ci>
+	    <m:apply>
+	      <m:plus/>
+	      <m:cn>0.005</m:cn>
+	      <m:cn>0.005</m:cn>
+	    </m:apply>
+	    <m:cn>0.01</m:cn>
+	  </m:apply>
+	</m:math>
+	
+	<note type="Note on computation" id="idp2836192"><label>Note on computation</label>
+	  In problems with significant amounts of evidence (e.g. large
+	  <m:math><m:ci>N</m:ci></m:math>), the evidence probability
+	  and the likelihoods can both get very very small, sufficient
+	  to cause floating-point underflow on many computers if
+	  equations such as <link target-id="eq13a" strength="2"/> and
+	  <link target-id="eq13b" strength="2"/> are computed
+	  directly. However the ratio of likelihood to evidence
+	  probability still remains a reasonable size and is an
+	  important quantity which must be calculated
+	  correctly.</note>
+      </para>
+      
+      <para id="exe1para12">
+	One solution to this problem is to compute only the ratio of
+	likelihoods, as in <link target-id="eq15" strength="2"/>. A 
+	more generally useful solution is to compute
+	log(likelihoods) instead. The product operations in the
+	expressions for the likelihoods then become sums of
+	logarithms. Even the calculation of likelihood ratios such
+	as 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>R</m:mi><m:mi>N</m:mi></m:msub>
+	  </m:ci>
+	</m:math> and comparison with appropriate thresholds can be
+	done in the log domain. After this, it is OK to return to
+	the linear domain if necessary since 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>R</m:mi><m:mi>N</m:mi></m:msub>
+	  </m:ci>
+	</m:math> should be a reasonable value as it is the
+	<term>ratio</term> of very small quantities.
+      </para>
+
+      <figure id="figure1">
+	<media id="idp2846784" alt=""><image src="../../media/figure1-c2ab.png" mime-type="image/png"/></media>
+	<caption>
+	  Probabilities of the current die being the loaded one as
+	  the throws progress (20th die is the loaded one).  A new
+	  die is selected whenever the probability falls below
+	  <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>p</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	  </m:math>.
+	</caption>
+      </figure>
+
+      <figure id="figure2">
+	<media id="idp5678928" alt=""><image src="../../media/figure2-d5d9.png" mime-type="image/png"/></media>
+	<caption>
+	  Histograms of the dice throws as the throws progress.
+	  Histograms are reset when each new die is selected.
+	</caption>
+      </figure>
+
+    </example>
+
+  </content>  
+</document>

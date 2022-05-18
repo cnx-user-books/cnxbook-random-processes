@@ -1,0 +1,716 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Probability Distributions</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>f3c0c286-bb01-4669-bf57-cc176fcf9029</md:uuid>
+</metadata>
+
+  <content>    
+    <para id="para1">
+      The distribution 
+      <m:math><m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub></m:math>
+      of a random variable <m:math><m:ci>X</m:ci></m:math> is simply a
+      probability measure which assigns probabilities to events on the
+      real line.  The distribution
+      <m:math><m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub></m:math>
+      answers questions of the form: 
+    </para>
+
+    <para id="para2">
+      What is the probability that <m:math><m:ci>X</m:ci></m:math>
+      lies in some subset <m:math><m:ci>F</m:ci></m:math> of the real
+      line? 
+    </para>
+
+    <para id="para3">
+      In practice we summarize
+      <m:math><m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub></m:math>
+      by its <term>Probability Mass Function - pmf</term> (for
+      discrete variables only), <term>Probability Density Function -
+      pdf</term> (mainly for continuous variables), or
+      <term>Cumulative Distribution Function - cdf</term> (for either
+      discrete or continuous variables).
+    </para>
+
+    <section id="sec1">
+      <title>Probability Mass Function (pmf)</title>
+
+      <para id="sec1para1">
+	Suppose the discrete random variable
+	<m:math><m:ci>X</m:ci></m:math> can take a set of
+	<m:math><m:ci>M</m:ci></m:math> real values 
+	<m:math>
+	  <m:set>
+	    <m:ci>
+	      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	    <m:ci>…</m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>x</m:mi><m:mi>M</m:mi></m:msub>
+	    </m:ci>
+	  </m:set>
+	</m:math>, then the <term>pmf</term> is defined as: 
+
+	<equation id="eq1">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>p</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>X</m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci> 
+		<m:set>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+		  </m:ci>
+		</m:set>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	where 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:sum/>
+	      <m:bvar><m:ci>i</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:ci>M</m:ci>
+	      </m:uplimit>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>p</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>.  e.g. For a normal 6-sided die, 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>M</m:ci>
+	    <m:cn>6</m:cn>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>p</m:mi><m:mi>X</m:mi></m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+	      </m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:cn>6</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>.  For a pair of dice being thrown, 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>M</m:ci>
+	    <m:cn>11</m:cn>
+	  </m:apply>
+	</m:math> and the pmf is as shown in (a) of <link target-id="figure1" strength="2"/>.
+      </para>
+
+      <figure id="figure1">
+	<media id="idm5201120" alt=""><image src="../../media/figure1-bccb.png" mime-type="image/png"/></media>
+	<caption>
+	  Examples of pmfs, cdfs and pdfs: (a) to (c) for a
+	  discrete process, the sum of two dice; (d) and (e) for a
+	  continuous process with a normal or Gaussian distribution,
+	  whose mean = 2 and variance = 3. 
+	</caption>
+      </figure>
+
+    </section>
+
+    <section id="sec2">
+      <title>Cumulative Distribution Function (cdf)</title>
+
+      <para id="sec2para1">
+	The <term>cdf</term> can describe discrete, continuous or
+	mixed distributions of <m:math><m:ci>X</m:ci></m:math> and is
+	defined as: 
+
+	<equation id="eq2">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:apply>
+		  <m:leq/>
+		  <m:ci>X</m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci> 
+		<m:interval closure="open-closed">
+		  <m:apply>
+		    <m:minus/>
+		    <m:infinity/>
+		  </m:apply>
+		  <m:ci>x</m:ci>
+		</m:interval>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	For discrete <m:math><m:ci>X</m:ci></m:math>: 
+	
+	<equation id="eq3">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:sum/>
+		<m:domainofapplication>
+		  <m:ci>i</m:ci>
+		</m:domainofapplication>
+		<m:set>
+		  <m:bvar>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>p</m:mi><m:mi>X</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:bvar>
+		  <m:condition>
+		    <m:apply>
+		      <m:leq/>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>x</m:ci>
+		    </m:apply>
+		  </m:condition>
+		</m:set>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	giving step-like cdfs as in the example of (b) of <link target-id="figure1" strength="2"/>.
+      </para>
+
+      <para id="sec2para2">
+	Properties follow directly from the Axioms of Probability: 
+
+	<list id="list1" list-type="enumerated">
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:leq/>
+		<m:cn>0</m:cn>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+		<m:cn>1</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </item>
+
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:minus/>
+		    <m:infinity/>
+		  </m:apply>
+		</m:apply>
+		<m:cn>0</m:cn>
+	      </m:apply>
+	    </m:math>, 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:infinity/>
+		</m:apply>
+		<m:cn>1</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </item>
+	  
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	    </m:math> is non-decreasing as
+	    <m:math><m:ci>x</m:ci></m:math> increases
+	  </item>
+
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:apply>
+		    <m:leq/>
+		    <m:apply>
+		      <m:lt/>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>X</m:ci>
+		    </m:apply>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </item>
+	  
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:apply>
+		    <m:gt/>
+		    <m:ci>X</m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:minus/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </item>
+	</list>
+
+	where there is no ambiguity we will often drop the subscript
+	<m:math><m:ci>X</m:ci></m:math> and refer to the cdf as 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">F</m:ci>
+	    <m:ci>x</m:ci>
+	  </m:apply>
+	</m:math>. 
+      </para>
+    </section>
+
+    <section id="sec3">
+      <title>Probability Density Function (pdf)</title>
+      
+      <para id="sec3para1">
+	The <term>pdf</term> of <m:math><m:ci>X</m:ci></m:math> is
+	defined as the derivative of the cdf: 
+
+	<equation id="eq4">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:diff/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	The pdf can also be interpreted in derivative form as 
+	<m:math>
+	  <m:apply>
+	    <m:tendsto/>
+	    <m:apply>
+	      <m:mo>δ</m:mo>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>:
+
+	<equation id="eq5">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:mo>δ</m:mo>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:apply>
+		  <m:leq/>
+		  <m:apply>
+		    <m:lt/>
+		    <m:ci>x</m:ci>
+		    <m:ci>X</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>x</m:ci>
+		    <m:apply>
+		      <m:mo>δ</m:mo>
+		      <m:ci>x</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>x</m:ci>
+		    <m:apply>
+		      <m:mo>δ</m:mo>
+		      <m:ci>x</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	For a discrete random variable with pmf given by 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub><m:mi>p</m:mi><m:mi>X</m:mi></m:msub>
+	    </m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math>: 
+
+	<equation id="eq6">
+	  <m:math display="block">
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:sum/>
+		<m:bvar><m:ci>i</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>M</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>p</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:mo>δ</m:mo>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>x</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation> 
+
+	An example of the pdf of the 2-dice discrete random process is
+	shown in (c) of <link target-id="figure1" strength="2"/>.
+	(Strictly the delta functions should extend vertically to
+	infinity, but we show them only reaching the values of their
+	areas,
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub><m:mi>p</m:mi><m:mi>X</m:mi></m:msub>
+	    </m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math>.)
+      </para>
+
+      <para id="sec3para2">
+	The pdf and cdf of a continuous distribution (in this case the
+	<term>normal</term> or <term>Gaussian</term> distribution) are
+	shown in (d) and (e) of <link target-id="figure1" strength="2"/>. <note id="idp7745552">The cdf is the integral of the pdf and
+	should always go from zero to unity for a valid probability
+	distribution.</note>
+      </para>
+
+      <para id="sec3para3">
+	Properties of pdfs: 
+
+	<list id="list2" list-type="enumerated">
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:geq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+		<m:cn>0</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </item>
+
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>x</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:cn>1</m:cn>
+	      </m:apply>
+	    </m:math>
+	  </item>
+
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>F</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>  
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>α</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>x</m:ci>
+		  </m:uplimit>  
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>α</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </item>
+
+	  <item>
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:apply>
+		    <m:leq/>
+		    <m:apply>
+		      <m:lt/>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>X</m:ci>
+		    </m:apply>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>α</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:uplimit>  
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>α</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </item>
+	</list>
+	
+	As for the cdf, we will often drop the subscript
+	<m:math><m:ci>X</m:ci></m:math> and refer simply to 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">f</m:ci>
+	    <m:ci>x</m:ci>
+	  </m:apply>
+	</m:math> when no confusion can arise.
+      </para>
+    </section>
+
+  </content>
+</document>

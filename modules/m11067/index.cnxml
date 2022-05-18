@@ -1,0 +1,814 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Approximation Formula for the Gaussian Error Integral, Q(x)</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>1f222435-0ec9-4542-a7d9-42c130112ba6</md:uuid>
+</metadata>
+
+  <content>  
+    <para id="para1">
+      A Gaussian pdf with unit variance is given by: 
+      
+      <equation id="eq36">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">f</m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:exp/>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>x</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      The probability that a signal with a pdf given by  
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">f</m:ci>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math> lies above a given threshold
+      <m:math><m:ci>x</m:ci></m:math> is given by the Gaussian Error
+      Integral or <m:math><m:ci>Q</m:ci></m:math> function:
+      
+      <equation id="eq37">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">Q</m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar>
+		<m:ci>u</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:ci>x</m:ci>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:infinity/>
+	      </m:uplimit>
+	      <m:apply>
+		<m:ci type="fn">f</m:ci>
+		<m:ci>u</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      
+      There is no analytical solution to this integral, but it has a
+      simple relationship to the error function,    
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">erf</m:ci>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math>, or its complement, 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">erfc</m:ci>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math>, which are tabulated in many books of mathematical
+      tables.
+      
+      <equation id="eq38a">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">erf</m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>u</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>x</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>u</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation> 
+
+      and 
+      
+      <equation id="eq38b">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">erfc</m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:minus/>
+	      <m:cn>1</m:cn>
+	      <m:apply>
+		<m:ci type="fn">erf</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:root/>
+		  <m:pi/>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>u</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:ci>x</m:ci>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>u</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      Therefore, 
+      
+      <equation id="eq39">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">Q</m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">erfc</m:ci>
+		<m:apply>
+		  <m:divide/>
+		  <m:ci>x</m:ci>
+		  <m:apply>
+		    <m:root/>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:ci type="fn">erf</m:ci>
+		  <m:apply>
+		    <m:divide/>
+		    <m:ci>x</m:ci>
+		    <m:apply>
+		      <m:root/>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      
+      Note that  
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:apply>
+	    <m:ci type="fn">erf</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	  <m:cn>0</m:cn>
+	</m:apply>
+      </m:math> and  
+      
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:apply>
+	    <m:ci type="fn">erf</m:ci>
+	    <m:infinity/>
+	  </m:apply>
+	  <m:cn>1</m:cn>
+	</m:apply>
+      </m:math>, and therefore 
+      
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:apply>
+	    <m:ci type="fn">Q</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	  <m:cn>0.5</m:cn>
+	</m:apply>
+      </m:math> and 
+      <m:math>
+	<m:apply>
+	  <m:tendsto/>
+	  <m:apply>
+	    <m:ci type="fn">Q</m:ci>
+	    <m:ci>x</m:ci>
+	  </m:apply>
+	  <m:cn>0</m:cn>
+	</m:apply>
+      </m:math> very rapidly as
+      <m:math><m:ci>x</m:ci></m:math> becomes large.
+    </para>
+    
+    <para id="para2">
+      It is useful to derive simple approximations to 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">Q</m:ci>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math> which can be used on a calculator and avoid the need
+      for tables.
+    </para>
+    
+    <para id="para3">
+      Let  
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:ci>v</m:ci>
+	  <m:apply>
+	    <m:minus/>
+	    <m:ci>u</m:ci>
+	    <m:ci>x</m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math>, then:
+
+      <equation id="eq40">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">Q</m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar>
+		<m:ci>v</m:ci>
+	      </m:bvar>
+	      <m:lowlimit>
+		<m:cn>0</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:infinity/>
+	      </m:uplimit>
+	      <m:apply>
+		<m:ci type="fn">f</m:ci>
+		<m:apply>
+		  <m:plus/>
+		  <m:ci>v</m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>v</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:plus/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>v</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:ci>v</m:ci>
+			  <m:ci>x</m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>x</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>x</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar>
+		  <m:ci>v</m:ci>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:ci>v</m:ci>
+			<m:ci>x</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>v</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+      
+      Now if 
+      <m:math>
+	<m:apply>
+	  <m:mo>≫</m:mo>
+	  <m:ci>x</m:ci>
+	  <m:cn>1</m:cn>
+	</m:apply>
+      </m:math>, we may obtain an approximate solution by replacing
+      the 
+      <m:math>
+	<m:apply>
+	  <m:exp/>
+	  <m:apply>
+	    <m:minus/>
+	    <m:apply>
+	      <m:divide/>
+	      <m:apply>
+		<m:power/>
+		<m:ci>v</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:apply>
+      </m:math> term in the integral by unity, since it will initially
+      decay much slower than the 
+      <m:math>
+	<m:apply>
+	  <m:exp/>
+	  <m:apply>
+	    <m:minus/>
+	    <m:apply>
+	      <m:times/>
+	      <m:ci>v</m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:apply>
+      </m:math> term.  Therefore
+
+      <equation id="eq41">
+	<m:math>
+	  <m:apply>
+	    <m:lt/>
+	    <m:apply>
+	      <m:ci type="fn">Q</m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>x</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar>
+		    <m:ci>v</m:ci>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>0</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:ci>v</m:ci>
+			<m:ci>x</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>x</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		    </m:apply>
+		  </m:apply>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      This approximation is an upper bound, and its ratio to the true
+      value of 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">Q</m:ci>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math> becomes less than 
+      <m:math><m:cn>1.1</m:cn></m:math> only when  
+      
+      <m:math>
+	<m:apply>
+	  <m:gt/>
+	  <m:ci>x</m:ci>
+	  <m:cn>3</m:cn>
+	</m:apply>
+      </m:math>, as shown in <link target-id="figure1" strength="2"/>. We
+      may obtain a much better approximation to  
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">Q</m:ci>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math> by altering the denominator above from (
+      <m:math>
+	<m:apply>
+	  <m:times/>
+	  <m:apply>
+	    <m:root/>
+	    <m:apply>
+	      <m:times/>
+	      <m:cn>2</m:cn>
+	      <m:pi/>
+	    </m:apply>
+	  </m:apply>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math>) to (
+      <m:math>
+	<m:apply>
+	  <m:plus/>
+	  <m:apply>
+	    <m:times/>
+	    <m:cn>1.64</m:cn>
+	    <m:ci>x</m:ci>
+	  </m:apply>
+	  <m:apply>
+	    <m:root/>
+	    <m:apply>
+	      <m:plus/>
+	      <m:apply>
+		<m:times/>
+		<m:cn>0.76</m:cn>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>x</m:ci>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	      <m:cn>4</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:apply>
+      </m:math>) to give:
+
+      <equation id="eq42">
+	<m:math>
+	  <m:apply>
+	    <m:approx/>
+	    <m:apply>
+	      <m:ci type="fn">Q</m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+	      <m:apply>
+		<m:exp/>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>x</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:times/>
+		  <m:cn>1.64</m:cn>
+		  <m:ci>x</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:root/>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>0.76</m:cn>
+		      <m:apply>
+			<m:power/>
+			<m:ci>x</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:cn>4</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation> 
+      
+      This improved approximation gives a curve indistinguishable from 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">Q</m:ci>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math> in <link target-id="figure1" strength="2"/> and its ratio
+      to the true   
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">Q</m:ci>
+	  <m:ci>x</m:ci>
+	</m:apply>
+      </m:math> is now within 
+      <m:math>
+	<m:apply>
+	  <m:mo>±</m:mo>
+	  <m:apply>
+	    <m:times/>
+	    <m:cn>0.3</m:cn>
+	    <m:ci>%</m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math> of unity for all 
+      <m:math>
+	<m:apply>
+	  <m:geq/>
+	  <m:ci>x</m:ci>
+	  <m:cn>0</m:cn>
+	</m:apply>
+      </m:math> as shown in <link target-id="figure2" strength="2"/>. This
+      accuracy is sufficient for nearly all practical problems.
+    </para> 
+
+    <figure id="figure1">
+      <media id="idm8134128" alt=""><image src="../../media/figure1-ac43.png" mime-type="image/png"/></media>
+      <caption>
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">Q</m:ci>
+	    <m:ci>x</m:ci>
+	  </m:apply>
+	</m:math> and the simple approximation of <link target-id="eq41" strength="2"/>.
+      </caption> 
+    </figure>
+
+    <figure id="figure2">
+      <media id="idm8132704" alt=""><image src="../../media/figure2-cc15.png" mime-type="image/png"/></media>
+      <caption>
+	The ration of the improved approximation of  
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">Q</m:ci>
+	    <m:ci>x</m:ci>
+	  </m:apply>
+	</m:math> in <link target-id="eq42" strength="2"/> to the true
+	value, obtained by numerical integration.
+      </caption> 
+    </figure>
+  </content>
+</document>

@@ -1,0 +1,107 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Aims and Motivation for the Course</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>7d6acefb-841d-4c81-ae12-63ee6e243b17</md:uuid>
+</metadata>
+  
+  
+  <content>
+    
+    <para id="para1">
+      We aim to:
+      
+      <list id="list1">
+	<item>
+	  Develop a theory which can characterize the behavior of
+	  <term>real-world Random Signals and Processes</term>;
+	</item>
+	<item>
+	  Use standard <term>Probability Theory</term> for this.
+	</item>
+      </list>
+   
+      
+      Random signal theory is important for 
+      <list id="list2">
+	<item>
+	  Analysis of signals;
+	</item>
+	<item>
+	  Inference of underlying system parameters from noisy
+	  observed data;
+	</item>
+	<item>
+	  Design of optimal systems (digital and analogue signal
+	  recovery, signal classification, estimation ...);
+	</item>
+	<item>
+	  Predicting system performance (error-rates, signal-to-noise
+	  ratios, ...).
+	</item>
+      </list>
+    </para>
+
+
+    <example id="example1">
+      <title>Speech signals</title>
+      <para id="example1para1">
+	Use probability theory to characterize that some sequences of
+	vowels and consonants are more likely than others, some
+	waveforms more likely than others for a given vowel or
+	consonant. Please see <link target-id="figure1" strength="2"/>.
+      </para>
+      <para id="example1para2">
+	Use this to achieve: speech recognition, speech coding, speech
+	enhancement, ...
+      </para>
+    </example>
+
+
+    <figure id="figure1">
+      <media id="idm554896" alt=""><image src="../../media/figure1-dec0.png" mime-type="image/png"/></media>
+      <caption>Four utterances of the vowel sound 'Aah'.</caption>
+    </figure>
+
+    
+    <example id="example2">
+      <title>Digital communications</title>
+      <para id="example2para1">
+	Characterize the properties of the digital data source (mobile
+	phone, digital television transmitter, ...), characterize the
+	noise/distortions present in the transmission channel. Please
+	see <link target-id="figure2" strength="2"/>.
+      </para>
+      <para id="example2para2">
+	Use this to achieve: accurate regeneration of the digital
+	signal at the receiver, analysis of the channel
+	characteristics ...
+      </para>
+    </example>
+
+    <figure id="figure2">
+      <media id="idp503600" alt=""><image src="../../media/figure2-5810.png" mime-type="image/png"/></media>
+      <caption>Digital data stream from a noisy communications Channel.</caption>
+    </figure>
+    
+    
+    <para id="para2">
+      Probability theory is used to give a mathematical description of
+      the behavior of real-world systems which involve elements of
+      <term>randomness</term>. Such a system might be as simple as a
+      coin-flipping experiment, in which we are interested in whether
+      'Heads' or 'Tails' is the outcome, or it might be more complex,
+      as in the study of random errors in a coded digital data stream
+      (e.g. a CD recording or a digital mobile phone).
+    </para>
+
+    <para id="para3">
+      The basics of probability theory should be familiar from the IB
+      Probability and Statistics course. Here we summarize the main
+      results from that course and develop them into a framework that
+      can encompass random signals and processes.
+    </para>
+
+  </content>
+  
+</document>

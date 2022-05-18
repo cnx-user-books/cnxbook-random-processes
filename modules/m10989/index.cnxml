@@ -1,0 +1,866 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Random Signals</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>684487f9-e13f-43e1-b6e3-1c014c01271d</md:uuid>
+</metadata>
+  
+  <content>
+    <para id="para1">
+      Random signals are random variables which evolve, often with
+      time (e.g. audio noise), but also with distance (e.g. intensity
+      in an image of a random texture), or sometimes another
+      parameter.
+    </para>
+
+    <para id="para2">
+      They can be described as usual by their cdf and either their pmf
+      (if the amplitude is discrete, as in a digitized signal) or
+      their pdf (if the amplitude is continuous, as in most analogue
+      signals).
+    </para>
+
+    <para id="para3">
+      However a very important additional property is how rapidly a
+      random signal fluctuates. Clearly a slowly varying signal such
+      as the waves in an ocean is very different from a rapidly
+      varying signal such as vibrations in a vehicle. We will see
+      later in <link document="m11067" strength="2"/> how to deal with
+      these frequency dependent characteristics of randomness.
+    </para>
+
+    <para id="para4">
+      For the moment we shall assume that random signals are sampled
+      at regular intervals and that each signal is equivalent to a
+      sequence of samples of a given random process, as in the
+      following examples.
+    </para>
+    
+    <figure id="figure1">
+      <media id="idm6859040" alt=""><image src="../../media/figure1-5de0.png" mime-type="image/png"/></media>
+      <caption>
+	Detection of signals in noise: (a) the transmitted binary
+	signal; (b) the binary signal after filtering with a half-sine
+	receiver filter; (c) the channel noise after filtering with
+	the same filter; (d) the filtered signal plus noise at the
+	detector in the receiver.
+      </caption>
+    </figure>
+    
+    <figure id="figure2">
+      <media id="idm6856592" alt=""><image src="../../media/figure2-627a.png" mime-type="image/png"/></media> 
+      <caption>
+	The pdfs of the signal plus noise at the detector for the two
+	<m:math>
+	  <m:apply>
+	    <m:mo>±</m:mo>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>. The vertical dashed line is the detector threshold
+	and the shaded area to the left of the origin represents the
+	probability of error when data = 1.
+      </caption>
+    </figure>
+
+    <section id="sec1">
+      <title>Example - Detection of a binary signal in noise</title>
+      <para id="sec1para1">
+	We now consider the example of detecting a binary signal after
+	it has passed through a channel which adds noise. The
+	transmitted signal is typically as shown in (a) of <link target-id="figure1" strength="2"/>.
+      </para>
+    
+      <para id="sec1para2">
+	In order to reduce the channel noise, the receiver will
+	include a lowpass filter. The aim of the filter is to reduce
+	the noise as much as possible without reducing the peak values
+	of the signal significantly. A good filter for this has a
+	half-sine impulse response of the form:
+
+	<equation id="eq9">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">h</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:piecewise>
+		<m:piece>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:pi/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:ci>
+			  <m:msub><m:mi>T</m:mi><m:mi>b</m:mi></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:sin/>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:times/>
+			  <m:pi/>
+			  <m:ci>t</m:ci>
+			</m:apply>
+			<m:ci>
+			  <m:msub><m:mi>T</m:mi><m:mi>b</m:mi></m:msub>
+			</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:leq/>
+		    <m:apply>
+		      <m:leq/>
+		      <m:cn>0</m:cn>
+		      <m:ci>t</m:ci>
+		    </m:apply>
+		    <m:ci>
+		      <m:msub><m:mi>T</m:mi><m:mi>b</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:piece>
+		<m:otherwise>
+		  <m:cn>0</m:cn>
+		</m:otherwise>
+	      </m:piecewise>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Where 
+	<m:math> 
+	  <m:ci>
+	    <m:msub><m:mi>T</m:mi><m:mi>b</m:mi></m:msub>
+	  </m:ci>
+	</m:math> = bit period.
+      </para>
+
+      <para id="sec1para3">
+	This filter will convert the rectangular data bits into
+	sinusoidally shaped pulses as shown in (b) of <link target-id="figure1" strength="2"/> and it will also convert wide
+	bandwidth channel noise into the form shown in (c) of <link target-id="figure1" strength="2"/>. Bandlimited noise of this
+	form will usually have an approximately Gaussian pdf.
+      </para>
+
+      <para id="sec1para4">
+	Because this filter has an impulse response limited to just
+	one bit period and has unit gain at zero frequency (the area
+	under 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">h</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> is unity), the signal values at the center of each
+	bit period at the detector will still be 
+	<m:math>
+	  <m:apply>
+	    <m:mo>±</m:mo>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>. If we choose to sample each bit at the detector at
+	this optimal mid point, the pdfs of the signal plus noise at
+	the detector will be shown in <link target-id="figure2" strength="2"/>. 
+      </para>
+
+      <para id="sec1para5">
+	Let the filtered data signal be 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">D</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> and the filtered noise be 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">U</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>, then the detector signal is 
+	
+	<equation id="eq10">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">R</m:ci>
+		<m:ci>t</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:ci type="fn">D</m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">U</m:ci>
+		  <m:ci>t</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	If we assume that 
+	<m:math>
+	  <m:apply>
+	    <m:mo>+</m:mo>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math> and <m:math><m:cn>-1</m:cn></m:math> bits are
+	equiprobable and the noise is a symmetric zero-mean process,
+	the optimum detector threshold is clearly midway between these
+	two states, i.e. at zero. The probability of error when the
+	data = 
+	<m:math>
+	  <m:apply>
+	    <m:mo>+</m:mo>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math> is then given by:
+
+	<equation id="eq11">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:condition>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>D</m:ci>
+		    <m:apply>
+		      <m:mo>+</m:mo>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:condition>
+		<m:ci>error</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:condition>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>D</m:ci>
+		    <m:apply>
+		      <m:mo>+</m:mo>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:condition>  
+		<m:apply>
+		  <m:lt/>
+		  <m:apply>
+		    <m:ci type="fn">R</m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>F</m:mi><m:mi>U</m:mi></m:msub>
+		</m:ci>
+		<m:cn>-1</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>u</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:minus/>
+		    <m:infinity/>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:cn>-1</m:cn>
+		</m:uplimit>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	where 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>F</m:mi><m:mi>U</m:mi></m:msub>
+	  </m:ci>
+	</m:math> and 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+	  </m:ci>
+	</m:math> are the cdf and pdf of
+	<m:math><m:ci>U</m:ci></m:math>. This is the shaded area in
+	<link target-id="figure2" strength="2"/>.
+      </para>
+
+      <para id="sec1para6">
+	Similarly the probability of error when the data =
+	<m:math><m:cn>-1</m:cn></m:math> is then given by:
+
+	<equation id="eq12">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:condition>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>D</m:ci>
+		    <m:cn>-1</m:cn>
+		  </m:apply>
+		</m:condition>
+		<m:ci>error</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:condition>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>D</m:ci>
+		    <m:cn>-1</m:cn>
+		  </m:apply>
+		</m:condition>  
+		<m:apply>
+		  <m:gt/>
+		  <m:apply>
+		    <m:ci type="fn">R</m:ci>
+		    <m:ci>t</m:ci>
+		  </m:apply>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:cn>1</m:cn>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>F</m:mi><m:mi>U</m:mi></m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:mo>+</m:mo>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>u</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Hence the overall probability of error is:
+
+	<equation id="eq13">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:ci>error</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		    <m:condition>
+		      <m:apply>
+			<m:eq/>
+			<m:ci>D</m:ci>
+			<m:apply>
+			  <m:mo>+</m:mo>
+			  <m:cn>1</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:condition>
+		    <m:ci>error</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>D</m:ci>
+		      <m:apply>
+			<m:mo>+</m:mo>
+			<m:cn>1</m:cn>
+		      </m:apply>
+		    </m:apply> 
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		    <m:condition>
+		      <m:apply>
+			<m:eq/>
+			<m:ci>D</m:ci>
+			<m:cn>-1</m:cn>
+		      </m:apply>
+		    </m:condition>
+		    <m:ci>error</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>D</m:ci>
+		      <m:cn>-1</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>u</m:ci></m:bvar>
+		    <m:lowlimit>
+		      <m:apply>
+			<m:minus/>
+			<m:infinity/>
+		      </m:apply>
+		    </m:lowlimit>
+		    <m:uplimit>
+		      <m:cn>-1</m:cn>
+		    </m:uplimit>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>u</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>D</m:ci>
+		      <m:apply>
+			<m:mo>+</m:mo>
+			<m:cn>1</m:cn>
+		      </m:apply>
+		    </m:apply> 
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>u</m:ci></m:bvar>
+		    <m:lowlimit>
+		      <m:cn>1</m:cn>
+		    </m:lowlimit>
+		    <m:uplimit>
+		      <m:infinity/>
+		    </m:uplimit>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>u</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>D</m:ci>
+		      <m:cn>-1</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	since 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+	  </m:ci>
+	</m:math> is symmetric about zero
+	
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:ci>error</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>u</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>D</m:ci>
+		    <m:apply>
+		      <m:mo>+</m:mo>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		  </m:apply> 
+		</m:apply>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>D</m:ci>
+		    <m:cn>-1</m:cn>
+		  </m:apply> 
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>u</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:cn>1</m:cn>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:infinity/>
+	      </m:uplimit>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+		</m:ci>
+		<m:ci>u</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+
+	To be a little more general and to account for signal
+	attenuation over the channel, we shall assume that the signal
+	values at the detector are 
+	<m:math>
+	  <m:apply>
+	    <m:mo>±</m:mo>
+	    <m:ci>
+	      <m:msub><m:mi>v</m:mi><m:mn>0</m:mn></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math> (rather than 
+	<m:math>
+	  <m:apply>
+	    <m:mo>±</m:mo>
+	    <m:mn>1</m:mn>
+	  </m:apply>
+	</m:math>) and that the filtered noise at the detector has a
+	zero-mean Gaussian pdf with variance 
+	<m:math>
+	  <m:apply>
+	    <m:power/>
+	    <m:ci>σ</m:ci>
+	    <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math>: 
+
+	<equation id="eq14">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+		</m:ci>
+		<m:ci>u</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>u</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	and so 
+
+	<equation id="eq15">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:ci>error</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>u</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>v</m:mi><m:mn>0</m:mn>
+		    </m:msub>
+		  </m:ci>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>u</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:divide/>
+		    <m:ci>
+		      <m:msub>
+			<m:mi>v</m:mi><m:mn>0</m:mn>
+		      </m:msub>
+		    </m:ci>
+		    <m:ci>σ</m:ci>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>f</m:mi><m:mi>U</m:mi></m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:times/>
+		      <m:ci>σ</m:ci>
+		      <m:ci>u</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:ci>σ</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">Q</m:ci>
+		<m:apply>
+		  <m:divide/>
+		  <m:ci>
+		    <m:msub>
+		      <m:mi>v</m:mi><m:mn>0</m:mn>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>σ</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	where 
+
+	<equation id="eq16">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Q</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>u</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:ci>x</m:ci>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>u</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	This integral has no analytic solution, but a good
+	approximation to it exists and is discussed in some detail in
+	<link document="m11067" strength="2"/>. 
+      </para>
+
+      <para id="sec1para7">
+	From <link target-id="eq15" strength="2"/> we may obtain the
+	probability of error in the 
+	binary detector, which is often expressed as the <term>bit
+	error rate</term> or <term>BER</term>. For
+	example, if 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:ci>error</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:cn>2</m:cn>
+	      <m:apply>
+		<m:power/>
+		<m:cn>10</m:cn>
+		<m:cn>3</m:cn>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>, this would often be expressed as a bit error rate
+	of 
+	<m:math>
+	  <m:apply>
+	    <m:times/>
+	    <m:cn>2</m:cn>
+	    <m:apply>
+	      <m:power/>
+	      <m:cn>10</m:cn>
+	      <m:cn>3</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>, or alternatively as 1 error in 500 bits (on
+	average).
+      </para>
+      
+      <para id="sec1para8">
+	The argument (
+	<m:math>
+	  <m:apply>
+	    <m:divide/>
+	    <m:ci>
+	      <m:msub><m:mi>v</m:mi><m:mn>0</m:mn></m:msub>
+	    </m:ci>
+	    <m:ci>σ</m:ci>
+	  </m:apply>
+	</m:math>) in <link target-id="eq15" strength="2"/> is the
+	signal-to-noise voltage ratio (SNR) at 
+	the detector, and the BER rapidly diminishes with increasing
+	SNR (see <link document="m11067" target-id="figure1" strength="2"/>). 
+      </para>
+    </section>
+
+  </content>
+  
+</document>

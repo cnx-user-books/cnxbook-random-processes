@@ -1,0 +1,742 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Random Vectors</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>ed74cdf5-2e24-4fca-a044-c971e9d59b5e</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      Random Vectors are simply groups of random variables, arranged
+      as vectors. E.g.:
+
+      <equation id="eq1">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci type="vector">X</m:ci>
+	    <m:apply>
+	      <m:transpose/>
+	      <m:matrix>
+		<m:matrixrow>
+		  <m:ci>
+		    <m:msub><m:mi>X</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>…</m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>X</m:mi><m:mi>n</m:mi></m:msub>
+		  </m:ci>
+		</m:matrixrow>
+	      </m:matrix>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      where 
+      <m:math>
+	<m:ci>
+	  <m:msub><m:mi>X</m:mi><m:mn>1</m:mn></m:msub>
+	</m:ci>
+      </m:math>, <m:math><m:ci>…</m:ci></m:math> 
+      <m:math>
+	<m:ci>
+	  <m:msub><m:mi>X</m:mi><m:mi>n</m:mi></m:msub>
+	</m:ci>
+      </m:math> are <m:math><m:ci>n</m:ci></m:math> separate random
+      variables.
+    </para>
+
+    <para id="para2">
+      In general, all of the previous results can be applied to random
+      vectors as well as to random scalars, but vectors allow some
+      interesting new results too.
+    </para>
+
+    <figure id="figure1">
+      <media id="idm6799088" alt=""><image src="../../media/figure1-97f0.png" mime-type="image/png"/></media>
+      <caption>
+	pdfs of (a) a 2-D normal distribution and (b) a Rayleigh
+	distribution, corresponding to the magnitude of the 2-D random
+	vectors.
+      </caption>
+    </figure>
+
+    <section id="sec1">
+      <title>Example - Arrows on a target</title>
+
+      <para id="sec1para1">
+	Suppose that arrows are shot at a target and land at random
+	distances from the target centre. The horizontal and vertical
+	components of these distances are formed into a 2-D random
+	error vector. If each component of this error vector is an
+	independent variable with zero-mean Gaussian pdf of variance 
+	<m:math>
+	  <m:apply>
+	    <m:power/>
+	    <m:ci>σ</m:ci>
+	    <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math>, calculate the pdf's of the radial magnitude and the
+	phase angle of the error vector.
+      </para>
+
+      <para id="sec1para2">
+	Let the error vector be 
+	
+	<equation id="eq2">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci type="vector">X</m:ci>
+	      <m:apply>
+		<m:transpose/>
+		<m:matrix>
+		  <m:matrixrow>
+		    <m:ci>
+		      <m:msub><m:mi>X</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>X</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:matrixrow>
+		</m:matrix>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>X</m:mi><m:mn>1</m:mn></m:msub>
+	  </m:ci>
+	</m:math> and 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>X</m:mi><m:mn>2</m:mn></m:msub>
+	  </m:ci>
+	</m:math> each have a zero-mean Gaussian pdf given by 
+
+	<equation id="eq3">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">f</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>x</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Since 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>X</m:mi><m:mn>1</m:mn></m:msub>
+	  </m:ci>
+	</m:math> and 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>X</m:mi><m:mn>2</m:mn></m:msub>
+	  </m:ci>
+	</m:math> are independent, the 2-D pdf of <m:math><m:ci type="vector">X</m:ci></m:math> is
+
+	<equation id="eq4">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">f</m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">f</m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>σ</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:plus/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>
+			    <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+			  </m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>
+			    <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+			  </m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	In polar coordinates 
+	
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>
+	      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	    <m:apply>
+	      <m:times/>
+	      <m:ci>r</m:ci>
+	      <m:apply>
+		<m:cos/>
+		<m:ci>θ</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+	and
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>
+	      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+	    </m:ci>
+	    <m:apply>
+	      <m:times/>
+	      <m:ci>r</m:ci>
+	      <m:apply>
+		<m:sin/>
+		<m:ci>θ</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+
+	To calculate the radial pdf, we substitute 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>r</m:ci>
+	    <m:apply>
+	      <m:root/>
+	      <m:apply>
+		<m:plus/>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		  <m:cn>2</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math> in the above 2-D pdf to get: 
+
+	<equation id="eq6">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:apply>
+		  <m:lt/>
+		  <m:apply>
+		    <m:lt/>
+		    <m:ci>r</m:ci>
+		    <m:ci>R</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>r</m:ci>
+		    <m:apply>
+		      <m:mo>δ</m:mo>
+		      <m:ci>r</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>R</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:ci>r</m:ci>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>r</m:ci>
+		    <m:apply>
+		      <m:mo>δ</m:mo>
+		      <m:ci>r</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:uplimit>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>θ</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:pi/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:pi/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		    <m:ci>R</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	where 
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:approx/>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>R</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:ci>r</m:ci>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:apply>
+		  <m:plus/>
+		  <m:ci>r</m:ci>
+		  <m:apply>
+		    <m:mo>δ</m:mo>
+		    <m:ci>r</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:uplimit>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>θ</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:minus/>
+		    <m:pi/>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:pi/>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		  <m:ci>R</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:mo>δ</m:mo>
+		  <m:ci>r</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>θ</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:pi/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:pi/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:pi/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:divide/>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>r</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:apply>
+			      <m:power/>
+			      <m:ci>σ</m:ci>
+			      <m:cn>2</m:cn>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:ci>r</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>σ</m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:ci>r</m:ci>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>r</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:mo>δ</m:mo>
+		  <m:ci>r</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+
+	Hence the radial pdf of the error vector is:
+
+	<equation id="eq07">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mi>R</m:mi></m:msub>
+		</m:ci>
+		<m:ci>r</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:limit/>
+		  <m:bvar>
+		    <m:apply>
+		      <m:mo>δ</m:mo>
+		      <m:ci>r</m:ci>
+		    </m:apply>
+		  </m:bvar>
+		  <m:lowlimit>
+		    <m:cn>0</m:cn>
+		  </m:lowlimit>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		    <m:apply>
+		      <m:lt/>
+		      <m:ci>r</m:ci>
+		      <m:apply>
+			<m:lt/>
+			<m:ci>R</m:ci>
+			<m:apply>
+			  <m:plus/>
+			  <m:ci>r</m:ci>
+			  <m:apply>
+			    <m:mo>δ</m:mo>
+			    <m:ci>r</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:mo>δ</m:mo>
+		  <m:ci>r</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>σ</m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:ci>r</m:ci>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>r</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	This is a <term>Rayleigh distribution</term> with variance = 
+	<m:math>
+	  <m:apply>
+	    <m:times/>
+	    <m:cn>2</m:cn>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>σ</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math> (these are two components of <m:math><m:ci type="vector">X</m:ci></m:math>, each with variance
+	<m:math>
+	  <m:apply>
+	    <m:power/>
+	    <m:ci>σ</m:ci>
+	    <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math>).
+      </para>
+
+      <para id="sec1para3">
+	The 2-D pdf of <m:math><m:ci type="vector">X</m:ci></m:math>
+	depends only on <m:math><m:ci>r</m:ci></m:math> and not on
+	<m:math><m:ci>θ</m:ci></m:math>, so the angular pdf of
+	the error vector is constant over any 
+	<m:math>
+	  <m:apply>
+	    <m:times/>
+	    <m:cn>2</m:cn>
+	    <m:pi/>
+	  </m:apply>
+	</m:math> interval and is therefore 
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>f</m:mi><m:mi>Θ</m:mi></m:msub>
+	      </m:ci>
+	      <m:ci>θ</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:apply>
+		<m:times/>
+		<m:cn>2</m:cn>
+		<m:pi/>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+
+	so that 
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>θ</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:pi/>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:pi/>
+	      </m:uplimit>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mi>Θ</m:mi></m:msub>
+		</m:ci>
+		<m:ci>θ</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>
+      </para>
+    </section>
+
+  </content>  
+</document>

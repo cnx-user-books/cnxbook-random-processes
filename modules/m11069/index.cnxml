@@ -1,0 +1,2227 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Important Examples of Expectation</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>06d59fa2-99c4-4142-8f80-27cd522ef7b5</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      We get <term>Moments</term> of a pdf by setting 
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:apply>
+	    <m:ci>g</m:ci>
+	    <m:ci>X</m:ci>
+	  </m:apply>
+	  <m:apply>
+	    <m:power/>
+	    <m:ci>X</m:ci>
+	    <m:ci>n</m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math> in <link document="m11068" target-id="eq4" strength="2">this previous equation</link>,
+     
+      <equation id="eq6">
+	<title>nth order moment</title>
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:power/>
+		<m:ci>X</m:ci>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>x</m:ci></m:bvar>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>x</m:ci>
+		  <m:ci>n</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      <list id="list1">
+	<item>
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>n</m:ci>
+	      <m:cn>1</m:cn>
+	    </m:apply>
+	  </m:math>: 1st order moment, 
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	  </m:math> = Mean value
+	</item>
+
+	<item>
+	   <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>n</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:math>: 2nd order moment, 
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:power/>
+		<m:ci>x</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	    </m:apply>
+	  </m:math> = Mean-squared value (Power or energy)
+	</item>
+
+	<item>
+	   <m:math>
+	    <m:apply>
+	      <m:gt/>
+	      <m:ci>n</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:math>: Higher order moments, 
+	  <m:math>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:power/>
+		<m:ci>x</m:ci>
+		<m:ci>n</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>, give more detail about 
+	  <m:math>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+	      </m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	  </m:math>.
+	</item>
+      </list>
+    </para>  
+
+    <section id="sec1">
+      <title>Central Moments</title>
+
+      <para id="sec1para1">
+	Central moments are moments about the <term>centre</term> or
+	mean of a distribution,
+
+	<equation id="eq7">
+	  <title>nth order central moment</title>
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:power/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>X</m:ci>
+		    <m:apply>
+		      <m:mean/>
+		      <m:ci>X</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:ci>n</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:power/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>x</m:ci>
+		      <m:apply>
+			<m:mean/>
+			<m:ci>X</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:ci>n</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Some important parameters from central moments of a pdf are:
+
+	<list id="list2">
+	  <item>
+	    Variance, 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	    </m:math>: 
+	    
+	    <equation id="eq8">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>σ</m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>X</m:ci>
+			<m:apply>
+			  <m:mean/>
+			  <m:ci>X</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>x</m:ci></m:bvar>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:power/>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>x</m:ci>
+			  <m:apply>
+			    <m:mean/>
+			    <m:ci>X</m:ci>
+			  </m:apply>
+			</m:apply>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+			</m:ci>
+			<m:ci>x</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:int/>
+			<m:bvar><m:ci>x</m:ci></m:bvar>
+			<m:apply>
+			  <m:times/>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>x</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			  <m:apply>
+			    <m:ci type="fn">
+			      <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+			    </m:ci>
+			    <m:ci>x</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:mean/>
+			  <m:ci>X</m:ci>
+			</m:apply>
+			<m:apply>
+			  <m:int/>
+			  <m:bvar><m:ci>x</m:ci></m:bvar>
+			  <m:apply>
+			    <m:times/>
+			    <m:ci>x</m:ci>
+			    <m:apply>
+			      <m:ci type="fn">
+				<m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+			      </m:ci>
+			      <m:ci>x</m:ci>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:power/>
+			<m:apply>
+			  <m:mean/>
+			  <m:ci>X</m:ci>
+			</m:apply>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:int/>
+			<m:bvar><m:ci>x</m:ci></m:bvar>
+			<m:apply>
+			  <m:ci type="fn">
+			    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+			  </m:ci>
+			  <m:ci>x</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>X</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:apply>
+			    <m:mean/>
+			    <m:ci>X</m:ci>
+			  </m:apply>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:mean/>
+			<m:ci>X</m:ci>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>X</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:mean/>
+			<m:ci>X</m:ci>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>	
+	  </item>
+	  
+	  <item>
+	    Standard deviation, 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>σ</m:ci>
+		<m:apply>
+		  <m:root/>
+		  <m:ci>variance</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:math>. 
+	  </item>
+
+	  <item>
+	    Skewness, 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>3</m:cn>
+	      </m:apply>
+	    </m:math>: 
+
+	    <equation id="eq9">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>γ</m:ci>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:apply>
+			<m:power/>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>X</m:ci>
+			  <m:apply>
+			    <m:mean/>
+			    <m:ci>X</m:ci>
+			  </m:apply>
+			</m:apply>
+			<m:cn>3</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>σ</m:ci>
+		      <m:cn>3</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>γ</m:ci>
+		<m:cn>0</m:cn>
+	      </m:apply>
+	    </m:math> if the pdf of <m:math><m:ci>X</m:ci></m:math> is
+	    symmetric about 
+	    <m:math>
+	      <m:apply>
+		<m:mean/>
+		<m:ci>X</m:ci>
+	      </m:apply>
+	    </m:math>, and becomes more positive if the tail of the
+	    distribution is heavier when 
+	    <m:math>
+	      <m:apply>
+		<m:gt/>
+		<m:ci>X</m:ci>
+		<m:apply>
+		  <m:mean/>
+		  <m:ci>X</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:math>.
+	  </item>
+
+	  <item>
+	    Kurtosis (or excess), 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>4</m:cn>
+	      </m:apply>
+	    </m:math>: 
+
+	    <equation id="eq10">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>κ</m:ci>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+			<m:apply>
+			  <m:power/>
+			  <m:apply>
+			    <m:minus/>
+			    <m:ci>X</m:ci>
+			    <m:apply>
+			      <m:mean/>
+			      <m:ci>X</m:ci>
+			    </m:apply>
+			  </m:apply>
+			  <m:cn>4</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>4</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:cn>3</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>κ</m:ci>
+		<m:cn>0</m:cn>
+	      </m:apply>
+	    </m:math> for a Gaussian pdf and becomes more positive for
+	    distributions with heavier tails.
+	  </item>
+	</list>
+
+	<note id="idp8274832">Skewness and kurtosis are normalized by dividing the
+	central moments by appropriate powers of
+	<m:math><m:ci>σ</m:ci></m:math> to make them
+	dimensionless. Kurtosis is usually offset by
+	<m:math><m:cn>-3</m:cn></m:math> to make it zero for Gaussian
+	pdfs.
+	</note>
+      </para>
+    </section>
+
+    <section id="sec2">
+      <title>Example: Central Moments of a Normal Distribution</title>
+      <para id="sec2para1">
+	The normal (or Gaussian) pdf with zero mean is given by:
+
+	<equation id="eq11">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>x</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	What is the <m:math><m:ci>n</m:ci></m:math>th order central
+	moment for the Gaussian?
+      </para>
+
+      <para id="sec2para2">
+	Since the mean is zero, the <m:math><m:ci>n</m:ci></m:math>th
+	order central moment is given by
+	<equation id="eq12">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>X</m:ci>
+		  <m:ci>n</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>x</m:ci>
+		    <m:ci>n</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>x</m:ci></m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>x</m:ci>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:divide/>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>x</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:apply>
+			      <m:power/>
+			      <m:ci>σ</m:ci>
+			      <m:cn>2</m:cn>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+	    </m:ci>
+	    <m:ci>x</m:ci>
+	  </m:apply>
+	</m:math> is a function of 
+	<m:math>
+	  <m:apply>
+	    <m:power/>
+	    <m:ci>x</m:ci>
+	    <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math> and therefore is symmetric about zero. So all the
+	  odd-order moments will integrate to zero (including the
+	  lst-order moment, giving zero mean). The even-order moments
+	  are then given by:
+
+	<equation id="eq13">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>X</m:ci>
+		  <m:ci>n</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>2</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>x</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:cn>0</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>x</m:ci>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:divide/>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>x</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:apply>
+			      <m:power/>
+			      <m:ci>σ</m:ci>
+			      <m:cn>2</m:cn>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	where <m:math><m:ci>n</m:ci></m:math> is even. The integral is
+	calculated by substituting 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>u</m:ci>
+	    <m:apply>
+	      <m:divide/>
+	      <m:apply>
+		<m:power/>
+		<m:ci>x</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>σ</m:ci>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math> to give:
+
+	<equation id="eq14">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>x</m:ci>
+		    <m:ci>n</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>x</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>σ</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:power/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>σ</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:plus/>
+		      <m:ci>n</m:ci>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>u</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:cn>0</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>u</m:ci>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>n</m:ci>
+			  <m:cn>1</m:cn>
+			</m:apply>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>u</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+		<m:apply>
+		  <m:power/>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>σ</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:plus/>
+		      <m:ci>n</m:ci>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">Γ</m:ci>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:plus/>
+		      <m:ci>n</m:ci>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Here 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">Γ</m:ci>
+	    <m:ci>z</m:ci>
+	  </m:apply>
+	</m:math> is the Gamma function, which is defined as an
+	integral for all real 
+	<m:math>
+	  <m:apply>
+	    <m:gt/>
+	    <m:ci>z</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math> and is rather like the factorial function but
+	generalized to allow non-integer arguments. Values of the
+	Gamma function can be found in mathematical tables. It is
+	defined as follows:
+
+	<equation id="eq15">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:ci>z</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>u</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>u</m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>z</m:ci>
+		      <m:cn>1</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>u</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	and has the important (factorial-like) property that 
+
+	<equation id="eq16">
+	  <m:math>
+	    <m:apply>
+	      <m:forall/>
+	      <m:bvar><m:ci>z</m:ci></m:bvar>
+	      <m:condition>
+		<m:apply>
+		  <m:neq/>
+		  <m:ci>z</m:ci>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:condition>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci>Γ</m:ci>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>z</m:ci>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>z</m:ci>
+		  <m:apply>
+		    <m:ci type="fn">Γ</m:ci>
+		    <m:ci>z</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq17">
+	  <m:math>
+	    <m:apply>
+	      <m:forall/>
+	      <m:bvar><m:ci>z</m:ci></m:bvar>
+	      <m:condition>
+		<m:apply>
+		  <m:and/>
+		  <m:apply>
+		    <m:in/>
+		    <m:ci>z</m:ci>
+		    <m:integers/>
+		  </m:apply>
+		  <m:apply>
+		    <m:gt/>
+		    <m:ci>z</m:ci>
+		    <m:cn>0</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:condition>
+	     <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci>Γ</m:ci>
+		  <m:apply>
+		    <m:plus/>
+		    <m:ci>z</m:ci>
+		    <m:cn>1</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:factorial/>
+		  <m:ci>z</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation> 
+
+	The following results hold for the Gamma function (see below
+	for a way to evaluate 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">Γ</m:ci>
+	    <m:apply>
+	      <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math> etc.): 
+
+	<equation id="eq18a">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:root/>
+		<m:pi/>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<equation id="eq18b">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:cn>1</m:cn>
+	      </m:apply>
+	      <m:cn>1</m:cn>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	and hence 
+
+	<equation id="eq18c">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>3</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:root/>
+		  <m:pi/>
+		</m:apply>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	<equation id="eq18d">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	      <m:cn>1</m:cn>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Hence 
+
+	<equation id="eq19">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:power/>
+		  <m:ci>X</m:ci>
+		  <m:ci>n</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:piecewise>
+		<m:piece>
+		  <m:cn>0</m:cn>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>n</m:ci>
+		    <m:ci>odd</m:ci>
+		  </m:apply>
+		</m:piece>
+		<m:piece>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:root/>
+			<m:pi/>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:divide/>
+			<m:ci>n</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">Γ</m:ci>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:plus/>
+			  <m:ci>n</m:ci>
+			  <m:cn>1</m:cn>
+			</m:apply>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>n</m:ci>
+		    <m:ci>even</m:ci>
+		  </m:apply>
+		</m:piece>
+	      </m:piecewise>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	<list id="list3">
+	  <item>
+	    Valid pdf, 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>0</m:cn>
+	      </m:apply>
+	    </m:math>: 
+	    
+	    <equation id="eq20">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>X</m:ci>
+		      <m:cn>0</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:root/>
+			<m:pi/>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">Γ</m:ci>
+		      <m:apply>
+			<m:divide/>
+			<m:cn>1</m:cn>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:cn>1</m:cn>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    
+	    as required for a valid pdf.
+	    <note id="idp5447472">
+	      The normalization factor
+	      <m:math>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math> in the expression for the pdf of a unit
+	      variance Gaussian (e.g. <link target-id="eq11" strength="2"/>) arises directly from the above result.
+	    </note>
+	  </item>
+
+	  <item>	    
+	    Mean, 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>1</m:cn>
+	      </m:apply>
+	    </m:math>: 
+	    
+	    <equation id="eq21">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:ci>X</m:ci>
+		  </m:apply>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    
+	    so the mean is zero. 
+	  </item>
+	  
+	  <item>
+	    Variance, 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	    </m:math>: 
+	    
+	    <equation id="eq22">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>X</m:ci>
+			<m:apply>
+			  <m:mean/>
+			  <m:ci>X</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>X</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:root/>
+			<m:pi/>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">Γ</m:ci>
+		      <m:apply>
+			<m:divide/>
+			<m:cn>3</m:cn>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:root/>
+			<m:pi/>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:root/>
+			<m:pi/>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>σ</m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    Therefore standard deviation = 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:root/>
+		  <m:ci>variance</m:ci>
+		</m:apply>
+		<m:ci>σ</m:ci>
+	      </m:apply>
+	    </m:math>.
+	  </item>
+
+	  <item>
+	    Skewness, 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>3</m:cn>
+	      </m:apply>
+	    </m:math>: 
+
+	    <equation id="eq23">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>X</m:ci>
+		      <m:cn>3</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:math>
+	    </equation>
+
+	    so the skewness is zero.
+	  </item>
+
+	  <item>
+	    Kurtosis, 
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>n</m:ci>
+		<m:cn>4</m:cn>
+	      </m:apply>
+	    </m:math>: 
+	    
+	    <equation id="eq24">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:minus/>
+			<m:ci>X</m:ci>
+			<m:apply>
+			  <m:mean/>
+			  <m:ci>X</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>4</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>X</m:ci>
+		      <m:cn>4</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:root/>
+			<m:pi/>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">Γ</m:ci>
+		      <m:apply>
+			<m:divide/>
+			<m:cn>5</m:cn>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:root/>
+			<m:pi/>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>3</m:cn>
+			<m:apply>
+			  <m:root/>
+			  <m:pi/>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>4</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>3</m:cn>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>σ</m:ci>
+		      <m:cn>4</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    Hence 
+
+	    <equation id="eq25">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>κ</m:ci>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+			<m:apply>
+			  <m:power/>
+			  <m:apply>
+			    <m:minus/>
+			    <m:ci>X</m:ci>
+			    <m:apply>
+			      <m:mean/>
+			      <m:ci>X</m:ci>
+			    </m:apply>
+			  </m:apply>
+			  <m:cn>4</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>4</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:cn>3</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:minus/>
+		    <m:cn>3</m:cn>
+		    <m:cn>3</m:cn>
+		  </m:apply>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	  </item>
+	</list>
+      </para>
+    </section>
+
+    <section id="sec3">
+      <title>Evaluation of the Gamma Function</title>
+
+      <para id="sec3para1">
+	From the definition of <m:math><m:ci>Γ</m:ci></m:math>
+	and substituting 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>u</m:ci>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>x</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>: 
+
+	<equation id="eq26">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>u</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>u</m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:cn>1</m:cn>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>u</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>x</m:ci>
+		    <m:cn>-1</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>x</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:cn>2</m:cn>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:cn>2</m:cn>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>x</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:cn>0</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>x</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:minus/>
+		    <m:infinity/>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>x</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	  
+	Using the following squaring trick to convert this to a 2-D
+	integral in polar coordinates:
+
+	<equation id="eq27">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:power/>		
+		<m:apply>
+		  <m:ci type="fn">Γ</m:ci>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>x</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>x</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>y</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>y</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>y</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:minus/>
+		    <m:infinity/>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>x</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:plus/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>x</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>y</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>θ</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:apply>
+		    <m:minus/>
+		    <m:pi/>
+		  </m:apply>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:pi/>
+		</m:uplimit>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>r</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:cn>0</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>r</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:ci>r</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:cn>2</m:cn>
+		<m:pi/>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#evaluateat"/> 
+		  <m:lowlimit>
+		    <m:cn>0</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:cn>1</m:cn>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>r</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:pi/>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	and so (ignoring the negative square root):
+
+	<equation id="eq28">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:approx/>
+		<m:apply>
+		  <m:root/>
+		  <m:pi/>
+		</m:apply>
+		<m:cn>1.7725</m:cn>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Hence, using 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci>Γ</m:ci>
+	      <m:apply>
+		<m:plus/>
+		<m:ci>z</m:ci>
+		<m:cn>1</m:cn>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:ci>z</m:ci>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:ci>z</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>: 
+
+	<equation id="eq29">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:set>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>3</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		   <m:apply>
+		    <m:divide/>
+		    <m:cn>5</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		   <m:apply>
+		    <m:divide/>
+		    <m:cn>7</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		   <m:apply>
+		    <m:divide/>
+		    <m:cn>9</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		  <m:ci>…</m:ci>
+		</m:set>
+	      </m:apply>
+	      <m:set>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:root/>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>3</m:cn>
+		    <m:cn>4</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:root/>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>15</m:cn>
+		    <m:cn>8</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:root/>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>105</m:cn>
+		    <m:cn>16</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:root/>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+		<m:ci>…</m:ci>
+	      </m:set>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	The case for 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>z</m:ci>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math> is straightforward:
+
+	<equation id="eq30">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:cn>1</m:cn>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>u</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>u</m:ci>
+		    <m:cn>0</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>u</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#evaluateat"/> 
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:infinity/>
+		</m:uplimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>u</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:cn>1</m:cn>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	so 
+	<equation id="eq31">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">Γ</m:ci>
+		<m:set>
+		  <m:cn>2</m:cn>
+		  <m:cn>3</m:cn>
+		  <m:cn>4</m:cn>
+		  <m:cn>5</m:cn>
+		  <m:ci>…</m:ci>
+		</m:set>
+	      </m:apply>
+	      <m:set>
+		<m:cn>1</m:cn>
+		<m:cn>2</m:cn>
+		<m:cn>6</m:cn>
+		<m:cn>24</m:cn>
+		<m:ci>…</m:ci>
+	      </m:set>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+      </para>
+    </section>
+
+  </content>
+</document>

@@ -1,0 +1,2128 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Characteristic Functions</title>
+ 
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>32be50f1-88ea-47d9-8cff-8586b3a7ad08</md:uuid>
+</metadata>
+
+  <content>
+    <para id="para1">
+      You have already encountered the <term>Moment Generating
+      Function</term> of a pdf in the Part IB probability course. This
+      function was closely related to the <term>Laplace
+      Transform</term> of the pdf.
+    </para>
+
+    <para id="para2">
+      Now we introduce the <term>Characteristic Function</term> for a
+      random variable, which is closely related to the <term>Fourier
+      Transform</term> of the pdf.
+    </para>
+
+    <para id="para3">
+      In the same way that Fourier Transforms allow easy manipulation
+      of signals when they are convolved with linear system impulse
+      responses, Characteristic Functions allow easy manipulation of
+      convolved pdfs when they represent sums of random processes.
+    </para>
+
+    <para id="para4">
+      The <term>Characteristic Function</term> of a pdf is defined as:
+
+      <equation id="eq37">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+	      </m:ci>
+	      <m:ci>u</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+	      <m:apply>
+		<m:exp/>
+		<m:apply>
+		  <m:times/>
+		  <m:imaginaryi/>
+		  <m:ci>u</m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>x</m:ci></m:bvar>
+	      <m:lowlimit>
+		<m:apply>
+		  <m:minus/>
+		  <m:infinity/>
+		</m:apply>
+	      </m:lowlimit>
+	      <m:uplimit>
+		<m:infinity/>
+	      </m:uplimit>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:times/>
+		    <m:imaginaryi/>
+		    <m:ci>u</m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:mo>ℱ</m:mo>
+	      <m:apply>
+		<m:minus/>
+		<m:ci>u</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      where 
+      <m:math>
+	<m:apply>
+	  <m:mo>ℱ</m:mo>
+	  <m:ci>u</m:ci>
+	</m:apply>
+      </m:math> is the Fourier Transform of the pdf.
+    </para>
+
+    <para id="para5">
+      Note that whenever 
+      <m:math><m:ci><m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub></m:ci></m:math>
+      is a valid pdf, 
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:apply>
+	    <m:ci type="fn">Φ</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	  <m:apply>
+	    <m:int/>
+	    <m:bvar><m:ci>x</m:ci></m:bvar>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+	      </m:ci>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	  </m:apply>
+	  <m:cn>1</m:cn>
+	</m:apply>
+      </m:math>
+    </para>
+
+    <para id="para6">
+      Properties of Fourier Transforms apply with 
+      <m:math><m:apply><m:minus/><m:ci>u</m:ci></m:apply></m:math>
+      substituted for <m:math><m:ci>ω</m:ci></m:math>. In
+      particular: 
+
+      <list id="list1">
+	<item>
+	  <term>Convolution</term> - (sums of independent rv's) 
+	  <equation id="eq38">
+	    <m:math>
+	      <m:apply>
+		<m:implies/>
+		<m:apply>
+		  <m:implies/>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>Y</m:ci>
+		    <m:apply>
+		      <m:sum/>
+		      <m:bvar><m:ci>i</m:ci></m:bvar>
+		      <m:lowlimit>
+			<m:cn>1</m:cn>
+		      </m:lowlimit>
+		      <m:uplimit>
+			<m:ci>N</m:ci>
+		      </m:uplimit>
+		      <m:ci>
+			<m:msub><m:mi>X</m:mi><m:mi>i</m:mi></m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>
+		      <m:msub><m:mi>f</m:mi><m:mi>Y</m:mi></m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/> 
+		      <m:ci>
+			<m:msub><m:mi>f</m:mi>
+			  <m:mrow>
+			    <m:msub>
+			      <m:mi>X</m:mi>
+			      <m:mn>1</m:mn>
+			    </m:msub>
+			  </m:mrow>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>f</m:mi>
+			  <m:mrow>
+			    <m:msub>
+			      <m:mi>X</m:mi>
+			      <m:mn>2</m:mn>
+			    </m:msub>
+			  </m:mrow>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>…</m:ci>
+		      <m:ci>
+			<m:msub><m:mi>f</m:mi>
+			  <m:mrow>
+			    <m:msub>
+			      <m:mi>X</m:mi>
+			      <m:mi>N</m:mi>
+			    </m:msub>
+			  </m:mrow>
+			</m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>Φ</m:mi><m:mi>Y</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>u</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:product/>
+		    <m:bvar><m:ci>i</m:ci></m:bvar>
+		    <m:lowlimit>
+		      <m:cn>1</m:cn>
+		    </m:lowlimit>
+		    <m:uplimit>
+		      <m:ci>N</m:ci>
+		    </m:uplimit>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>Φ</m:mi>
+			  <m:mrow>
+			    <m:msub>
+			      <m:mi>X</m:mi>
+			      <m:mi>i</m:mi>
+			    </m:msub>
+			  </m:mrow>
+			</m:msub>
+		      </m:ci>
+		      <m:ci>u</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	</item>
+	
+	<item>
+	  <term>Inversion</term> 
+	  <equation id="eq39">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>u</m:ci></m:bvar>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:exp/>
+			<m:apply>
+			  <m:minus/>
+			  <m:apply>
+			    <m:times/>
+			    <m:imaginaryi/>
+			    <m:ci>u</m:ci>
+			    <m:ci>x</m:ci>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+			</m:ci>
+			<m:ci>u</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	</item>
+
+	<item>
+	  <term>Moments</term> 
+	  <equation id="eq40">
+	    <m:math>
+	      <m:apply>
+		<m:implies/>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:diff/>
+		    <m:bvar><m:ci>u</m:ci><m:degree><m:ci>n</m:ci></m:degree></m:bvar>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>u</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>x</m:ci></m:bvar>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:power/>
+			<m:apply>
+			  <m:times/>
+			  <m:imaginaryi/>
+			  <m:ci>x</m:ci>
+			</m:apply>
+			<m:ci>n</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:exp/>
+			<m:apply>
+			  <m:times/>
+			  <m:imaginaryi/>
+			  <m:ci>u</m:ci>
+			  <m:ci>x</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+			</m:ci>
+			<m:ci>x</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>X</m:ci>
+		      <m:ci>n</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>x</m:ci></m:bvar>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>x</m:ci>
+			<m:ci>n</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">
+			  <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+			</m:ci>
+			<m:ci>x</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:apply>
+			<m:power/>
+			<m:imaginaryi/>
+			<m:ci>n</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#evaluateat"/>
+		      <m:bvar><m:ci>u</m:ci></m:bvar>
+		      <m:lowlimit>
+			<m:cn>0</m:cn>
+		      </m:lowlimit>
+		      <m:apply>
+			<m:diff/>
+			<m:bvar>
+			  <m:ci>u</m:ci>
+			  <m:degree><m:ci>n</m:ci></m:degree>
+			</m:bvar>
+			<m:apply>
+			  <m:ci type="fn">
+			    <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+			  </m:ci>
+			  <m:ci>u</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	</item>
+	
+	<item>
+	  <term>Scaling</term>
+	  If 
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>Y</m:ci>
+	      <m:apply>
+		<m:times/>
+		<m:ci>a</m:ci>
+		<m:ci>X</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>, 
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mi>Y</m:mi></m:msub>
+		</m:ci>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+		<m:ci>a</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:math> from <link document="m11066" target-id="eq20" strength="2">this equation</link> in our previous discussion
+	  of functions of random variables, then 
+
+	  <equation id="eq41">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>Φ</m:mi><m:mi>Y</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>y</m:ci></m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:ci>u</m:ci>
+			<m:ci>y</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>f</m:mi><m:mi>Y</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>x</m:ci></m:bvar>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:ci>u</m:ci>
+			<m:ci>a</m:ci>
+			<m:ci>x</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>x</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:times/>
+		    <m:ci>a</m:ci>
+		    <m:ci>u</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+	</item>
+      </list>		  
+    </para>
+
+    <section id="sec1">
+      <title>Characteristic Function of a Gaussian pdf</title>
+      
+      <para id="sec1para1">
+	The Gaussian or normal distribution is very important, largely
+	because of the <term>Central Limit Theorem</term> which we
+	shall prove below. Because of this (and as part of the proof
+	of this theorem) we shall show here that a Gaussian pdf has a
+	Gaussian characteristic function too.
+      </para>
+
+      <para id="sec1para2">
+	A Gaussian distribution with mean
+	<m:math><m:ci>μ</m:ci></m:math> and variance 
+	<m:math>
+	  <m:apply>
+	    <m:power/>
+	    <m:ci>σ</m:ci>
+	    <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math> has pdf:
+
+	<equation id="eq42">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">f</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:power/>
+			<m:apply>
+			  <m:minus/>
+			  <m:ci>x</m:ci>
+			  <m:ci>μ</m:ci>
+			</m:apply>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Its characteristic function is obtained as follows, using a
+	trick known as completing the square of the exponent:
+
+	<equation id="eq43">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>u</m:ci>
+	      </m:apply>
+
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:times/>
+		    <m:imaginaryi/>
+		    <m:ci>u</m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:ci>u</m:ci>
+		      <m:ci>x</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:root/>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:pi/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>x</m:ci></m:bvar>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:minus/>
+			  <m:apply>
+			    <m:plus/>
+			    <m:apply>
+			      <m:minus/>
+			      <m:apply>
+				<m:power/>
+				<m:ci>x</m:ci>
+				<m:cn>2</m:cn>
+			      </m:apply>
+			      <m:apply>
+				<m:times/>
+				<m:cn>2</m:cn>
+				<m:ci>μ</m:ci>
+				<m:ci>x</m:ci>
+			      </m:apply>
+			    </m:apply>
+			    <m:apply>
+			      <m:power/>
+			      <m:ci>μ</m:ci>
+			      <m:cn>2</m:cn>
+			    </m:apply>
+			  </m:apply>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:apply>
+			      <m:power/>
+			      <m:ci>σ</m:ci>
+			      <m:cn>2</m:cn>
+			    </m:apply>
+			    <m:imaginaryi/>
+			    <m:ci>u</m:ci>
+			    <m:ci>x</m:ci>
+			  </m:apply>
+			</m:apply>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>σ</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:root/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:pi/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>x</m:ci></m:bvar>
+		    <m:apply>
+		      <m:exp/>
+		      <m:apply>
+			<m:minus/>
+			<m:apply>
+			  <m:divide/>
+			  <m:apply>
+			    <m:power/>
+			    <m:apply>
+			      <m:minus/>
+			      <m:ci>x</m:ci>
+			      <m:apply>
+				<m:plus/>
+				<m:ci>μ</m:ci>
+				<m:apply>
+				  <m:times/>
+				  <m:imaginaryi/>
+				  <m:ci>u</m:ci>
+				  <m:apply>
+				    <m:power/>
+				    <m:ci>σ</m:ci>
+				    <m:cn>2</m:cn>
+				  </m:apply>
+				</m:apply>
+			      </m:apply>
+			    </m:apply>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			  <m:apply>
+			    <m:times/>
+			    <m:cn>2</m:cn>
+			    <m:apply>
+			      <m:power/>
+			      <m:ci>σ</m:ci>
+			      <m:cn>2</m:cn>
+			    </m:apply>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:imaginaryi/>
+			<m:ci>u</m:ci>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:ci>μ</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>u</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>4</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:times/>
+		      <m:cn>2</m:cn>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:times/>
+		    <m:imaginaryi/>
+		    <m:ci>u</m:ci>
+		    <m:ci>μ</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>u</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>  
+	  </m:math>
+	</equation>
+
+	since the integral in brackets is similar to a Gaussian pdf
+	and integrates to unity.
+      </para>
+
+      <para id="sec1para3">
+	Thus the characteristic function of a Gaussian pdf is also
+	Gaussian in magnitude, 
+	<m:math>
+	  <m:apply>
+	    <m:exp/>
+	    <m:apply>
+	      <m:minus/>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>u</m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:power/>
+		    <m:ci>σ</m:ci>
+		    <m:cn>2</m:cn>
+		  </m:apply>
+		</m:apply>
+		<m:cn>2</m:cn>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>, with standard deviation 
+	<m:math>
+	  <m:apply>
+	    <m:divide/>
+	    <m:cn>1</m:cn>
+	    <m:ci>σ</m:ci>
+	  </m:apply>
+	</m:math>, and with a linear phase rotation term, 
+	<m:math>
+	  <m:apply>
+	    <m:exp/>
+	    <m:apply>
+	      <m:times/>
+	      <m:imaginaryi/>
+	      <m:ci>u</m:ci>
+	      <m:ci>μ</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>, whose rate of rotation equals the mean
+	<m:math><m:ci>μ</m:ci></m:math> of the pdf. This coincides
+	with standard results from Fourier analysis of Gaussian
+	waveforms and their spectra (e.g. Fourier transform of a
+	Gaussian waveform with time shift).
+      </para>
+    </section>
+
+    <section id="sec2">
+      <title>Summation of two or more Gaussian random variables</title>
+
+      <para id="sec2para1">
+	If two variables, 
+	<m:math>
+	  <m:ci><m:msub>
+	      <m:mi>X</m:mi>
+	      <m:mn>1</m:mn>
+	    </m:msub></m:ci>
+	</m:math>
+	and
+	<m:math>
+	  <m:ci><m:msub>
+	      <m:mi>X</m:mi>
+	      <m:mn>2</m:mn>
+	    </m:msub></m:ci>
+	</m:math>
+	, with Gaussian pdfs are summed to produce
+	<m:math><m:ci>X</m:ci></m:math>, their characteristic
+	functions will be multiplied together (equivalent to
+	convolving their pdfs) to give
+
+	<equation id="eq44">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>u</m:ci>
+	      </m:apply> 
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>Φ</m:mi>
+		      <m:mrow>
+			<m:msub><m:mi>X</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>Φ</m:mi>
+		      <m:mrow>
+			<m:msub><m:mi>X</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:times/>
+		    <m:imaginaryi/>
+		    <m:ci>u</m:ci>
+		    <m:apply>
+		      <m:plus/>
+		      <m:ci>
+			<m:msub><m:mi>μ</m:mi><m:mn>1</m:mn></m:msub>
+		      </m:ci>
+		      <m:ci>
+			<m:msub><m:mi>μ</m:mi><m:mn>2</m:mn></m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>u</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:plus/>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>
+			      <m:msub><m:mi>σ</m:mi><m:mn>1</m:mn></m:msub>
+			    </m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			   <m:apply>
+			    <m:power/>
+			    <m:ci>
+			      <m:msub><m:mi>σ</m:mi><m:mn>2</m:mn></m:msub>
+			    </m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	This is the characteristic function of a Gaussian pdf with
+	mean (
+	<m:math>
+	  <m:apply>
+	    <m:plus/>
+	    <m:ci>
+	      <m:msub><m:mi>μ</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	     <m:ci>
+	      <m:msub><m:mi>μ</m:mi><m:mn>2</m:mn></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math>) and variance (
+	<m:math>
+	  <m:apply>
+	    <m:plus/>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>
+		<m:msub><m:mi>σ</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>
+		<m:msub><m:mi>σ</m:mi><m:mn>2</m:mn></m:msub>
+	      </m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:apply>
+	</m:math>). 
+      </para>
+
+      <para id="sec2para2">
+	Further Gaussian variables can be added and the pdf will
+	remain Gaussian with further terms added to the above
+	expressions for the combined mean and variance.
+      </para>
+    </section>
+
+    <section id="sec3">
+      <title>Central Limit Theorem</title>
+
+      <para id="sec3para1">
+	The central limit theorem states broadly that if a large
+	number <m:math><m:ci>N</m:ci></m:math> of independent random
+	variables of arbitrary pdf, but with equal variance 
+	<m:math>
+	  <m:apply>
+	    <m:power/>
+	    <m:ci>σ</m:ci>
+	    <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math> and zero mean, are summed together and scaled by 
+	<m:math>
+	  <m:apply>
+	    <m:divide/>
+	    <m:cn>1</m:cn>
+	    <m:apply>
+	      <m:root/>
+	      <m:ci>N</m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math> to keep the total energy independent of
+	<m:math><m:ci>N</m:ci></m:math>, then the pdf of the resulting
+	variable will tend to a zero-mean Gaussian with variance 
+	<m:math>
+	  <m:apply>
+	    <m:power/>
+	    <m:ci>σ</m:ci>
+	    <m:cn>2</m:cn>
+	  </m:apply>
+	</m:math> as <m:math><m:ci>N</m:ci></m:math> tends to
+	infinity.
+      </para>
+
+      <para id="sec3para2">
+	This result is obvious from the previous result <emphasis>if the
+	input pdfs are also Gaussian</emphasis>, but it is the fact
+	that it applies <emphasis>for arbitrary input pdfs</emphasis>
+	that is remarkable, and is the reason for the importance of
+	the Gaussian (or normal) pdf. Noise generated in nature is
+	nearly always the result of summing many tiny random processes
+	(e.g. noise from electron energy transitions in a resistor or
+	transistor, or from distant worldwide thunder storms at a
+	radio antenna) and hence tends to a Gaussian pdf.
+      </para>
+
+      <para id="sec3para3">
+	Although for simplicity, we shall prove the result only for
+	the case when all the summed processes have the
+	<emphasis>same</emphasis> variance and pdfs, the central limit
+	result is more general than this and applies in many cases
+	even when the variance and pdfs are not all the same.
+      </para>
+
+      <section id="sec3para4">
+	<title>Proof:</title>
+	<para id="sec3para5">
+	  Let 
+	  <m:math>
+	    <m:ci><m:msub>
+		<m:mi>X</m:mi>
+		<m:mi>i</m:mi>
+	      </m:msub></m:ci>
+	  </m:math>
+	  (<m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>i</m:ci>
+	      <m:cn>1</m:cn>
+	    </m:apply>
+	  </m:math>
+	  to <m:math><m:ci>N</m:ci></m:math>) be the
+	  <m:math><m:ci>N</m:ci></m:math> independent random
+	  processes, each will zero mean and variance
+	  <m:math>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>σ</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:math>, which are combined to give 
+	
+	  <equation id="eq45">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>X</m:ci>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:root/>
+		      <m:ci>N</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:sum/>
+		    <m:bvar><m:ci>i</m:ci></m:bvar>
+		    <m:lowlimit>
+		      <m:cn>1</m:cn>
+		    </m:lowlimit>
+		    <m:uplimit>
+		      <m:ci>N</m:ci>
+		    </m:uplimit>
+		    <m:ci>
+		      <m:msub><m:mi>X</m:mi><m:mi>i</m:mi></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  Then, if the characteristic function of each input process
+	  before scaling is 
+	  <m:math>
+	    <m:apply>
+	      <m:ci type="fn">Φ</m:ci>
+	      <m:ci>u</m:ci>
+	    </m:apply>
+	  </m:math> and we use <link target-id="eq41" strength="2"/> to
+	  include the scaling by 
+	  <m:math>
+	    <m:apply>
+	      <m:divide/>
+	      <m:cn>1</m:cn>
+	      <m:apply>
+		<m:root/>
+		<m:ci>N</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>, the characteristic function of
+	  <m:math><m:ci>X</m:ci></m:math> is 
+
+	  <equation id="eq46">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply> 
+		<m:apply>
+		  <m:product/>
+		  <m:bvar><m:ci>i</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:cn>1</m:cn>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:ci>N</m:ci>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>Φ</m:mi>
+			<m:mrow>
+			  <m:mi>X</m:mi>
+			  <m:mi>i</m:mi>
+			</m:mrow>
+		      </m:msub>
+		    </m:ci>
+		    <m:apply>
+		      <m:divide/>
+		      <m:ci>u</m:ci>
+		      <m:apply>
+			<m:root/>
+			<m:ci>N</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:power/>
+		  <m:apply>
+		    <m:ci type="fn">Φ</m:ci>
+		    <m:apply>
+		    <m:divide/>
+		      <m:ci>u</m:ci>
+		      <m:apply>
+			<m:root/>
+			<m:ci>N</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:ci>N</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  Taking logs:
+
+	  <equation id="eq47">
+	    <m:math>
+	    <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:log/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>u</m:ci>
+		  </m:apply>   
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>N</m:ci>
+		  <m:apply>
+		    <m:log/>
+		    <m:apply>
+		      <m:ci type="fn">Φ</m:ci>
+		      <m:apply>
+			<m:divide/>
+			<m:ci>u</m:ci>
+			<m:apply>
+			  <m:root/>
+			  <m:ci>N</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  Using Taylor's theorem to expand 
+	  <m:math>
+	    <m:apply>
+	      <m:ci type="fn">Φ</m:ci>
+	      <m:apply>
+		<m:divide/>
+		<m:ci>u</m:ci>
+		<m:apply>
+		  <m:root/>
+		  <m:ci>N</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math> in terms of its derivatives at 
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>u</m:ci>
+	      <m:cn>0</m:cn>
+	    </m:apply>
+	  </m:math> (and hence its moments) gives 
+	  
+	  <equation id="eq48">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">Φ</m:ci>
+		  <m:apply>
+		    <m:divide/>
+		    <m:ci>u</m:ci>
+		    <m:apply>
+		      <m:root/>
+		      <m:ci>N</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:plus/>
+		  <m:apply>
+		    <m:ci type="fn">Φ</m:ci>
+		    <m:cn>0</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:ci>u</m:ci>
+		      <m:apply>
+			<m:root/>
+			<m:ci>N</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:diff/>
+		      <m:apply>
+			<m:ci type="fn">Φ</m:ci>
+			<m:cn>0</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:divide/>
+			<m:ci>u</m:ci>
+			<m:apply>
+			  <m:root/>
+			  <m:ci>N</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:diff/>
+		      <m:degree><m:cn>2</m:cn></m:degree>
+		      <m:apply>
+			<m:ci type="fn">Φ</m:ci>
+			<m:cn>0</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:cn>6</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:divide/>
+			<m:ci>u</m:ci>
+			<m:apply>
+			  <m:root/>
+			  <m:ci>N</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>3</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:diff/>
+		      <m:degree><m:cn>3</m:cn></m:degree>
+		      <m:apply>
+			<m:ci type="fn">Φ</m:ci>
+			<m:cn>0</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:cn>1</m:cn>
+		      <m:cn>24</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:apply>
+			<m:divide/>
+			<m:ci>u</m:ci>
+			<m:apply>
+			  <m:root/>
+			  <m:ci>N</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>4</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:diff/>
+		      <m:degree><m:cn>4</m:cn></m:degree>
+		      <m:apply>
+			<m:ci type="fn">Φ</m:ci>
+			<m:cn>0</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:ci>…</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  From the <term>Moments</term> property of characteristic
+	  functions with zero mean:
+	
+	  <list id="list2">
+	    <item>
+	      valid pdf
+
+	      <m:math display="block">
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">Φ</m:ci>
+		    <m:cn>0</m:cn>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>
+			<m:msub><m:mi>X</m:mi><m:mi>i</m:mi></m:msub>
+		      </m:ci>
+		      <m:cn>0</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:cn>1</m:cn>
+		</m:apply>
+	      </m:math>
+	    </item>
+
+	    <item>
+	      zero mean 
+	      <m:math display="block">
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:diff/>
+		    <m:apply>
+		      <m:ci type="fn">Φ</m:ci>
+		      <m:cn>0</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:imaginaryi/>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:ci>
+			<m:msub><m:mi>X</m:mi><m:mi>i</m:mi></m:msub>
+		      </m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:cn>0</m:cn>
+		</m:apply>
+	      </m:math>
+	    </item>
+
+	    <item>
+	      variance 
+	      <m:math display="block">
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:diff/>
+		    <m:degree><m:cn>2</m:cn></m:degree>
+		    <m:apply>
+		      <m:ci type="fn">Φ</m:ci>
+		      <m:cn>0</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:power/>
+		      <m:imaginaryi/>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>
+			  <m:msub><m:mi>X</m:mi><m:mi>i</m:mi></m:msub>
+			</m:ci>
+			<m:cn>2</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>σ</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </item>
+
+	    <item>
+	      scaled skewness 
+	      <m:math display="block">
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:diff/>
+		    <m:degree><m:cn>3</m:cn></m:degree>
+		    <m:apply>
+		      <m:ci type="fn">Φ</m:ci>
+		      <m:cn>0</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:power/>
+		      <m:imaginaryi/>
+		      <m:cn>3</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>
+			  <m:msub><m:mi>X</m:mi><m:mi>i</m:mi></m:msub>
+			</m:ci>
+			<m:cn>3</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:ci>γ</m:ci>
+		      <m:apply>
+			<m:power/>
+			<m:ci>σ</m:ci>
+			<m:cn>3</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </item>
+
+	    <item>
+	      scaled kurtosis
+	      
+	      <m:math display="block">
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:diff/>
+		    <m:degree><m:cn>4</m:cn></m:degree>
+		    <m:apply>
+		      <m:ci type="fn">Φ</m:ci>
+		      <m:cn>0</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:power/>
+		      <m:imaginaryi/>
+		      <m:cn>4</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#expectedvalue"/>
+		      <m:apply>
+			<m:power/>
+			<m:ci>
+			  <m:msub><m:mi>X</m:mi><m:mi>i</m:mi></m:msub>
+			</m:ci>
+			<m:cn>4</m:cn>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:plus/>
+		      <m:ci>κ</m:ci>
+		      <m:cn>3</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>σ</m:ci>
+		      <m:cn>4</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </item>
+	  </list>
+
+	  These are all constants, independent of
+	  <m:math><m:ci>N</m:ci></m:math>, and dependent only on the
+	  shape of the pdfs
+	  <m:math>
+	    <m:ci>
+	      <m:msub><m:mi>f</m:mi>
+		<m:mrow>
+		  <m:msub><m:mi>X</m:mi><m:mi>i</m:mi></m:msub>
+		</m:mrow>
+	      </m:msub>
+	    </m:ci>
+	  </m:math>.
+	</para>
+
+	<para id="sec3para6">
+	  Substituting these moments into <link target-id="eq47" strength="2"/> and <link target-id="eq48" strength="2"/> and
+	  using the series expansion,
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:log/>
+		<m:apply>
+		  <m:plus/>
+		  <m:cn>1</m:cn>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:ci>x</m:ci>
+	    </m:apply>
+	  </m:math> + (terms of order 
+	  <m:math>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>x</m:ci>
+	      <m:cn>2</m:cn>
+	    </m:apply>
+	  </m:math> or smaller), gives 
+	  
+	  <equation id="eq50">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:log/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>u</m:ci>
+		  </m:apply>   
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>N</m:ci>
+		  <m:apply>
+		    <m:log/>
+		    <m:apply>
+		      <m:ci type="fn">Φ</m:ci>
+		      <m:apply>
+			<m:divide/>
+			<m:ci>u</m:ci>
+			<m:apply>
+			  <m:root/>
+			  <m:ci>N</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>N</m:ci>
+		  <m:apply>
+		    <m:log/>
+		    <m:apply>
+		      <m:plus/>
+		      <m:apply>
+			<m:minus/>
+			<m:cn>1</m:cn>
+			<m:apply>
+			  <m:times/>
+			  <m:apply>
+			    <m:divide/>
+			    <m:apply>
+			      <m:power/>
+			      <m:ci>u</m:ci>
+			      <m:cn>2</m:cn>
+			    </m:apply>
+			    <m:apply>
+			      <m:times/>
+			      <m:cn>2</m:cn>
+			      <m:ci>N</m:ci>
+			    </m:apply>
+			  </m:apply>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>σ</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		      <m:ci>**</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:ci>N</m:ci>
+		  <m:apply>
+		    <m:plus/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:times/>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>u</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>σ</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			</m:apply>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:ci>N</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:ci>**</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:plus/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>u</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:ci>##</m:ci>
+		</m:apply>			
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  where ** represents the terms of order 
+	  <m:math>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>N</m:ci>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>3</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math> or smaller and ## represents the terms of order 
+	  <m:math>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>N</m:ci>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math> or smaller. As 
+	  <m:math>
+	    <m:apply>
+	      <m:tendsto/>
+	      <m:ci>N</m:ci>
+	      <m:infinity/>
+	    </m:apply>
+	  </m:math>, 
+
+	  <m:math display="block">
+	    <m:apply>
+	      <m:tendsto/>
+	      <m:apply>
+		<m:log/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply>   
+	      </m:apply>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:divide/>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>u</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		    <m:apply>
+		      <m:power/>
+		      <m:ci>σ</m:ci>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+
+	Therefore, as 
+	  <m:math>
+	    <m:apply>
+	      <m:tendsto/>
+	      <m:ci>N</m:ci>
+	      <m:infinity/>
+	    </m:apply>
+	  </m:math> 
+	  
+	  <equation id="eq51">
+	    <m:math>
+	      <m:apply>
+		<m:tendsto/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>Φ</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>u</m:ci>
+		</m:apply>   
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:divide/>
+		      <m:apply>
+			<m:times/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>u</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		      <m:cn>2</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  Note that, if the input pdfs are symmetric, the skewness will
+	  be zero and the error terms will decay as 
+	  <m:math>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>N</m:ci>
+	      <m:cn>-1</m:cn>
+	    </m:apply>
+	  </m:math> rather than 
+	  <m:math>
+	    <m:apply>
+	      <m:power/>
+	      <m:ci>N</m:ci>
+	      <m:apply>
+		<m:minus/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	    </m:apply>
+	    </m:apply>
+	  </m:math>; and so convergence to a Gaussian characteristic
+	  function will be more rapid.
+	</para>
+
+	<para id="sec3para7">
+	  Hence we may now infer from <link target-id="eq42" strength="2"/>, <link target-id="eq43" strength="2"/> and <link target-id="eq51" strength="2"/> that the pdf of
+	<m:math><m:ci>X</m:ci></m:math> as
+	  <m:math>
+	    <m:apply>
+	      <m:tendsto/>
+	      <m:ci>N</m:ci>
+	      <m:infinity/>
+	    </m:apply>
+	  </m:math> will be given by 
+	  
+	  <equation id="eq52">
+	    <m:math>
+	      <m:apply>
+		<m:eq/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:times/>
+		  <m:apply>
+		    <m:divide/>
+		    <m:cn>1</m:cn>
+		    <m:apply>
+		      <m:root/>
+		      <m:apply>
+			<m:times/>
+			<m:cn>2</m:cn>
+			<m:pi/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>σ</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:divide/>
+			<m:apply>
+			  <m:power/>
+			  <m:ci>x</m:ci>
+			  <m:cn>2</m:cn>
+			</m:apply>
+			<m:apply>
+			  <m:times/>
+			  <m:cn>2</m:cn>
+			  <m:apply>
+			    <m:power/>
+			    <m:ci>σ</m:ci>
+			    <m:cn>2</m:cn>
+			  </m:apply>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:math>
+	  </equation>
+
+	  <emphasis>Thus we have proved the required central limit
+	    result</emphasis>. 
+	</para>
+      </section>
+
+      <para id="sec3para8">
+	<link target-id="figure1a" strength="2"/> shows an example of
+	convergence when the input pdfs are uniform, and
+	<m:math><m:ci>N</m:ci></m:math> is gradually increased from
+	<m:math><m:cn>1</m:cn></m:math> to
+	<m:math><m:cn>50</m:cn></m:math>. By 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>N</m:ci>
+	    <m:cn>12</m:cn>
+	  </m:apply>
+	</m:math>, convergence is good, and this is how some
+	'Gaussian' random generator functions operate - by summing
+	typically <m:math><m:cn>12</m:cn></m:math> uncorrelated random
+	numbers with uniform pdfs.
+      </para>
+
+      <para id="sec3para9">
+	For some less smooth or more skewed pdfs, convergence can be
+	slower, as shown for a highly skewed triangular pdf in <link target-id="figure1b" strength="2"/>; and pdfs of discrete
+	processes are particularly problematic in this respect, as
+	illustrated in <link target-id="figure1c" strength="2"/>.
+      </para>
+
+      <figure orient="vertical" id="figure1">
+	<subfigure id="figure1a">
+	  <media id="idm1594400" alt=""><image src="../../media/figure1a-6e4e.png" mime-type="image/png"/></media>
+	</subfigure>
+	<subfigure id="figure1b">
+	  <media id="idm40576" alt=""><image src="../../media/figure1b-5ffd.png" mime-type="image/png"/></media>
+	</subfigure>
+	<subfigure id="figure1c">
+	  <media id="idm8379696" alt=""><image src="../../media/figure1c-a947.png" mime-type="image/png"/></media>
+	</subfigure>
+	<caption>Convergence toward a Gaussian pdf (Central Limit
+	Theorem) for 3 different input pdfs for 
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>N</m:ci>
+	      <m:cn>1</m:cn>
+	    </m:apply>
+	  </m:math> to <m:math><m:cn>50</m:cn></m:math>. Note that the
+	  uniform pdf (a) with smallest higher-order moments converges
+	  fastest. Curves are shown for 
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>N</m:ci>
+	      <m:set>
+		<m:cn>1</m:cn>
+		<m:cn>2</m:cn>
+		<m:cn>3</m:cn>
+		<m:cn>4</m:cn>
+		<m:cn>6</m:cn>
+		<m:cn>8</m:cn>
+		<m:cn>10</m:cn>
+		<m:cn>12</m:cn>
+		<m:cn>15</m:cn>
+		<m:cn>20</m:cn>
+		<m:cn>30</m:cn>
+		<m:cn>50</m:cn>
+	      </m:set>
+	    </m:apply>
+	  </m:math>.</caption>
+      </figure>
+    </section>
+    
+  </content>
+  
+</document>

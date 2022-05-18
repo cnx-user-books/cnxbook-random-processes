@@ -1,0 +1,49 @@
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:md="http://cnx.rice.edu/mdml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en">
+  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
+    <md:content-id>col10204</md:content-id>
+    <md:title>Random Processes</md:title>
+    <md:language>en</md:language>
+    <md:license url="http://creativecommons.org/licenses/by/1.0">Creative Commons Attribution License</md:license>
+    <md:uuid>4685995e-e0ed-491a-a8da-a1bcd92b5c89</md:uuid>
+<md:slug>random-processes</md:slug>
+</metadata>
+  <col:content>
+    <col:subcollection>
+      <md:title>Probability Distributions</md:title>
+      <col:content>
+        <col:module document="m10983"/>
+        <col:module document="m10984"/>
+        <col:module document="m10985"/>
+        <col:module document="m10986"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Random Vectors, Signals and Functions</md:title>
+      <col:content>
+        <col:module document="m10988"/>
+        <col:module document="m10989"/>
+        <col:module document="m11067"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Expectations, Moments, and Characteristic Functions</md:title>
+      <col:content>
+        <col:module document="m11068"/>
+        <col:module document="m11069"/>
+        <col:module document="m11070"/>
+        <col:module document="m11071"/>
+      </col:content>
+    </col:subcollection>
+    <col:subcollection>
+      <md:title>Correlation Functions and Power Spectra</md:title>
+      <col:content>
+        <col:module document="m11100"/>
+        <col:module document="m11101"/>
+        <col:module document="m11102"/>
+        <col:module document="m11103"/>
+        <col:module document="m11104"/>
+        <col:module document="m11105"/>
+      </col:content>
+    </col:subcollection>
+  </col:content>
+</col:collection>

@@ -1,0 +1,376 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Sums of Random Variables</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>d0bdbede-ab98-420a-aa80-14f50ea0e8af</md:uuid>
+</metadata>
+  
+  <content>
+    <para id="para1">
+      Consider the random variable <m:math><m:ci>Y</m:ci></m:math>
+      formed as the sum of two independent random variables
+      <m:math>
+	<m:ci><m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub></m:ci>
+      </m:math>
+      and
+      <m:math>
+	<m:ci><m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>2</m:mn>
+	  </m:msub></m:ci>
+      </m:math>: 
+      
+      <equation id="eq32">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>Y</m:ci>
+	    <m:apply>
+	      <m:plus/>
+	      <m:ci>
+		<m:msub><m:mi>X</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci>
+	       <m:ci>
+		<m:msub><m:mi>X</m:mi><m:mn>2</m:mn></m:msub>
+	      </m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      where
+      <m:math>
+	<m:ci><m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub></m:ci>
+      </m:math>
+      has pdf 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">
+	    <m:msub><m:mi>f</m:mi><m:mn>1</m:mn></m:msub>
+	  </m:ci>
+	  <m:ci>
+	    <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	  </m:ci>
+	</m:apply>
+      </m:math> and 
+      <m:math>
+	<m:ci><m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>2</m:mn>
+	  </m:msub></m:ci>
+      </m:math>
+      has pdf 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">
+	    <m:msub><m:mi>f</m:mi><m:mn>2</m:mn></m:msub>
+	  </m:ci>
+	  <m:ci>
+	    <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+	  </m:ci>
+	</m:apply>
+      </m:math>. 
+    </para>
+
+    <para id="para2">
+      We can write the joint pdf for <m:math><m:ci>y</m:ci></m:math>
+      and
+      <m:math>
+	<m:ci><m:msub>
+	    <m:mi>x</m:mi>
+	    <m:mn>1</m:mn>
+	  </m:msub></m:ci>
+      </m:math>
+      by rewriting the conditional probability formula:
+
+      <equation id="eq33">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">f</m:ci>
+	      <m:ci>y</m:ci>
+	      <m:ci>
+		<m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:times/>
+	      <m:apply>
+		<m:ci type="fn">f</m:ci>
+		<m:apply>
+		  <m:mo>|</m:mo>
+		  <m:ci>y</m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      It is clear that the event '<m:math><m:ci>Y</m:ci></m:math>
+      takes the value <m:math><m:ci>y</m:ci></m:math> conditional upon 
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:ci>
+	    <m:msub><m:mi>X</m:mi><m:mn>1</m:mn></m:msub>
+	  </m:ci>
+	  <m:ci>
+	    <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	  </m:ci>
+	</m:apply>
+      </m:math>' is equivalent to 
+      <m:math>
+	<m:ci><m:msub>
+	    <m:mi>X</m:mi>
+	    <m:mn>2</m:mn>
+	  </m:msub></m:ci>
+      </m:math>
+      taking a value 
+      <m:math>
+	<m:apply>
+	  <m:minus/>
+	  <m:ci>y</m:ci>
+	  <m:ci>
+	    <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+	  </m:ci>
+	</m:apply>
+      </m:math> (since 
+      <m:math>
+	<m:apply>
+	  <m:eq/>
+	  <m:ci>
+	    <m:msub><m:mi>X</m:mi><m:mn>2</m:mn></m:msub>
+	  </m:ci>
+	  <m:apply>
+	    <m:minus/>
+	    <m:ci>Y</m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>X</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:apply>
+      </m:math>). Hence 
+
+      <equation id="eq34">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">f</m:ci>
+	      <m:apply>
+		<m:mo>|</m:mo>
+		<m:ci>y</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>  
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>f</m:mi><m:mn>2</m:mn></m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:minus/>
+		<m:ci>y</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      Now 
+      <m:math>
+	<m:apply>
+	  <m:ci type="fn">f</m:ci>
+	  <m:ci>y</m:ci>
+	</m:apply>
+      </m:math> may be obtained using the <term>Marginal
+      Probability</term> formula (<link document="m10986" target-id="eq28" strength="2">this equation</link> from this discussion of <link document="m10986" target-id="sec2" strength="2">probability density
+      functions</link>). Hence
+
+      <equation id="eq35">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">f</m:ci>
+	      <m:ci>y</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+	      </m:bvar>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">f</m:ci>
+		  <m:apply>
+		    <m:mo>|</m:mo>
+		    <m:ci>y</m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+	      </m:bvar>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mn>2</m:mn></m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>y</m:ci>
+		    <m:ci>
+		      <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		    </m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/>
+	      <m:ci>
+		<m:msub><m:mi>f</m:mi><m:mn>2</m:mn></m:msub>
+	      </m:ci>  
+	      <m:ci>
+		<m:msub><m:mi>f</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci> 
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation> 
+
+      This result may be extended to sums of three or more random
+      variables by repeated application of the above arguments for
+      each new variable in turn. Since convolution is a commutative
+      operation, for <m:math><m:ci>n</m:ci></m:math> independent
+      variables we get:
+
+      <equation id="eq36">
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">f</m:ci>
+	      <m:ci>y</m:ci>
+	    </m:apply>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/>
+	      <m:ci>
+		<m:msub><m:mi>f</m:mi><m:mi>n</m:mi></m:msub>
+	      </m:ci>  
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/>
+		<m:ci>
+		  <m:msub><m:mi>f</m:mi>
+		    <m:mrow>
+		      <m:mi>n</m:mi>
+		      <m:mo>-</m:mo>
+		      <m:mn>1</m:mn>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>…</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>f</m:mi><m:mn>2</m:mn></m:msub>
+		</m:ci> 
+		<m:ci>
+		  <m:msub><m:mi>f</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/>
+	      <m:ci>
+		<m:msub><m:mi>f</m:mi><m:mi>n</m:mi></m:msub>
+	      </m:ci> 
+	      <m:ci>
+		<m:msub><m:mi>f</m:mi>
+		  <m:mrow>
+		    <m:mi>n</m:mi>
+		    <m:mo>-</m:mo>
+		    <m:mn>1</m:mn>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>…</m:ci>
+	      <m:ci>
+		<m:msub><m:mi>f</m:mi><m:mn>2</m:mn></m:msub>
+	      </m:ci> 
+	      <m:ci>
+		<m:msub><m:mi>f</m:mi><m:mn>1</m:mn></m:msub>
+	      </m:ci>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+      </equation>
+
+      An example of this effect occurs when multiple dice are thrown
+      and the scores are added together. In the 2-dice example of the
+      subfigures a,b,c of <link document="m10984" target-id="figure1" strength="2">this figure</link> in the discussion of probability
+      distributions, we saw how the pmf approximated a triangular
+      shape. This is just the convolution of two uniform 6-point pmfs
+      for each of the two dice.
+    </para>
+
+    <para id="para3">
+      Similarly if two variables with Gaussian pdfs are added
+      together, we shall show in <link document="m11071" target-id="sec2" strength="2">the discussion</link> of the summation of two or
+      more Gaussian random variables that this produces
+      another Gaussian pdf whose variance is the sum of the two input
+      variances.
+    </para>
+  </content>
+  
+</document>

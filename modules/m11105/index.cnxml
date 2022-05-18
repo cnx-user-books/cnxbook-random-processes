@@ -1,0 +1,769 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>White and Coloured Processes</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>0afa8766-a3c0-4be9-a2c0-c21b9a00c2e2</md:uuid>
+</metadata>
+  
+  <content>
+    <section id="sec1">
+      <title>White Noise</title>
+      <para id="sec1para1">
+	If we have a zero-mean Wide Sense Stationary process
+	<m:math><m:ci>X</m:ci></m:math>, it is a <term>White Noise
+	Process</term> if its ACF is a delta function at 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>τ</m:ci>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>, i.e. it is of the form: 
+
+	<equation id="eq36">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn"><m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>X</m:mi>
+		      <m:mi>X</m:mi>
+		    </m:mrow>
+		  </m:msub></m:ci>
+		<m:ci>τ</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:ci>
+		  <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:ci type="fn">δ</m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	where 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub>
+	  </m:ci>
+	</m:math> is a constant. 
+      </para>
+
+      <para id="sec1para2">
+	The PSD of <m:math><m:ci>X</m:ci></m:math> is then given by 
+
+	<equation id="eq37">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>τ</m:ci></m:bvar>
+		<m:apply>
+		 <m:times/>
+		  <m:ci>
+		    <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:apply>
+		    <m:ci type="fn">δ</m:ci>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:exp/>
+		    <m:apply>
+		      <m:minus/>
+		      <m:apply>
+			<m:times/>
+			<m:imaginaryi/>
+			<m:ci>ω</m:ci>
+			<m:ci>τ</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:ci>
+		  <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub>
+		</m:ci>
+		<m:apply>
+		  <m:exp/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:times/>
+		      <m:imaginaryi/>
+		      <m:ci>ω</m:ci>
+		      <m:cn>0</m:cn>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:ci>
+		<m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub>
+	      </m:ci>
+	    </m:apply>
+	  </m:math>
+	</equation>	
+
+	Hence <m:math><m:ci>X</m:ci></m:math> is <term>white</term>,
+	since it contains equal power at <emphasis>all</emphasis>
+	frequencies, as in <emphasis>white light</emphasis>. 
+      </para>
+      
+      <para id="sec1para3">
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub>
+	  </m:ci>
+	</m:math> is the PSD of <m:math><m:ci>X</m:ci></m:math> at all
+	frequencies. 
+      </para>
+
+      <para id="sec1para4">
+	But: 
+	
+	<equation id="eq38">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci>Power  of  X</m:ci>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:divide/>
+		  <m:cn>1</m:cn>
+		  <m:apply>
+		    <m:times/>
+		    <m:cn>2</m:cn>
+		    <m:pi/>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:int/>
+		  <m:bvar><m:ci>ω</m:ci></m:bvar>
+		  <m:lowlimit>
+		    <m:apply>
+		      <m:minus/>
+		      <m:infinity/>
+		    </m:apply>
+		  </m:lowlimit>
+		  <m:uplimit>
+		    <m:infinity/>
+		  </m:uplimit>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>ω</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:infinity/>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	so the White Noise Process is unrealizable in practice,
+	because of its infinite bandwidth.
+      </para>
+
+      <para id="sec1para5">
+	However, it is very useful as a conceptual entity and as an
+	approximation to 'nearly white' processes which have finite
+	bandwidth, but which are 'white' over all frequencies of
+	practical interest. For 'nearly white' processes, 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn"><m:msub>
+		<m:mi>r</m:mi>
+		<m:mrow>
+		  <m:mi>X</m:mi>
+		  <m:mi>X</m:mi>
+		</m:mrow>
+	      </m:msub></m:ci>
+	    <m:ci>τ</m:ci>
+	  </m:apply>
+	</m:math> is a narrow pulse of non-zero width, and 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+	    </m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply> 
+	</m:math> is flat from zero up to some relatively high cutoff
+	  frequency and then decays to zero above that.
+      </para>
+    </section>
+    
+    <section id="sec2">
+      <title>Strict Whiteness and i.i.d. Processes</title>
+
+      <para id="sec2para1">
+	Usually the above concept of whiteness is sufficient, but a
+	much stronger definition is as follows: 
+      </para>
+      
+      <para id="sec2para2">
+	Pick a set of times 
+	<m:math>
+	  <m:set>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+	    </m:ci>
+	    <m:ci>…</m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	  </m:set>
+	</m:math> to sample 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math>.
+      </para>
+
+      <para id="sec2para3">
+	If, for <emphasis>any choice</emphasis> of 
+	<m:math>
+	  <m:set>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+	    </m:ci>
+	    <m:ci>…</m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	  </m:set>
+	</m:math> with <m:math><m:ci>N</m:ci></m:math> finite, the
+	random variables 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math>, 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math>, <m:math><m:ci>…</m:ci></m:math> 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mi>N</m:mi></m:msub>
+	    </m:ci>
+	  </m:apply>
+	</m:math> are <term>jointly independent</term>, i.e. their
+	joint pdf is given by 
+
+	<equation id="eq39">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>f</m:mi>
+		    <m:mrow>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mo>(</m:mo>
+			<m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+			<m:mo>)</m:mo>
+		      </m:mrow>
+		      <m:mo>,</m:mo>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mo>(</m:mo>
+			<m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+			<m:mo>)</m:mo>
+		      </m:mrow>
+		      <m:mo>,</m:mo>
+		      <m:mi> </m:mi>
+		      <m:mi>…</m:mi>
+		      <m:mi> </m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mo>(</m:mo>
+			<m:msub><m:mi>t</m:mi><m:mi>N</m:mi></m:msub>
+			<m:mo>)</m:mo>
+		      </m:mrow>
+		    </m:mrow>
+		  </m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mn>1</m:mn></m:msub>
+		</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mn>2</m:mn></m:msub>
+		</m:ci>
+		<m:ci>…</m:ci>
+		<m:ci>
+		  <m:msub><m:mi>x</m:mi><m:mi>N</m:mi></m:msub>
+		</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:product/>
+		<m:bvar><m:ci>i</m:ci></m:bvar>
+		<m:lowlimit>
+		  <m:cn>1</m:cn>
+		</m:lowlimit>
+		<m:uplimit>
+		  <m:ci>N</m:ci>
+		</m:uplimit>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mo>(</m:mo>
+			<m:msub><m:mi>t</m:mi><m:mi>i</m:mi></m:msub>
+			<m:mo>)</m:mo>
+		      </m:mrow>
+		    </m:msub>
+		  </m:ci>
+		  <m:ci>
+		    <m:msub><m:mi>x</m:mi><m:mi>i</m:mi></m:msub>
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	and the marginal pdfs are identical, i.e.
+
+	<equation id="eq40">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:ci><m:msub><m:mi>f</m:mi>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mo>(</m:mo>
+		    <m:msub><m:mi>t</m:mi><m:mn>1</m:mn></m:msub>
+		    <m:mo>)</m:mo>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:ci><m:msub><m:mi>f</m:mi>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mo>(</m:mo>
+		    <m:msub><m:mi>t</m:mi><m:mn>2</m:mn></m:msub>
+		    <m:mo>)</m:mo>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>…</m:ci>
+	      <m:ci><m:msub><m:mi>f</m:mi>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mo>(</m:mo>
+		    <m:msub><m:mi>t</m:mi><m:mi>N</m:mi></m:msub>
+		    <m:mo>)</m:mo>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:ci>
+		<m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+	      </m:ci>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	then the process is termed <term>Independent and Identically
+	Distributed (i.i.d)</term>.
+      </para>
+
+      <para id="sec2para4">
+	If, in addition, 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>f</m:mi><m:mi>X</m:mi></m:msub>
+	  </m:ci> 
+	</m:math> is a pdf with zero mean, we have a <term>Strictly
+	  White Noise Process</term>.
+      </para>
+
+      <para id="sec2para5">
+	An i.i.d. process is 'white' because the variables 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mi>i</m:mi></m:msub>
+	    </m:ci>  
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>
+	      <m:msub><m:mi>t</m:mi><m:mi>j</m:mi></m:msub>
+	    </m:ci>  
+	  </m:apply>
+	</m:math> are jointly independent, even when separated by an
+	infinitesimally small interval between 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>t</m:mi><m:mi>i</m:mi></m:msub>
+	  </m:ci>
+	</m:math>
+	and 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>t</m:mi><m:mi>j</m:mi></m:msub>
+	  </m:ci>
+	</m:math>. 
+      </para>
+    </section>
+
+    <section id="sec3">
+      <title>Additive White Gaussian Noise (AWGN)</title>
+
+      <para id="sec3para1">
+	In many systems the concept of <term>Additive White Gaussian
+	Noise (AWGN)</term> is used. This simply means a process which
+	has a Gaussian pdf, a white PSD, and is linearly added to
+	whatever signal we are analysing.
+      </para>
+
+      <para id="sec3para2">
+	Note that although 'white' and Gaussian' often go together,
+	this is <emphasis>not necessary</emphasis> (especially for
+	'nearly white' processes).
+      </para>
+
+      <para id="sec3para3">
+	E.g. a very high speed random bit stream has an ACF which is
+	approximately a delta function, and hence is a nearly white
+	process, but its pdf is clearly not Gaussian - it is a pair of
+	delta functions at 
+	<m:math>
+	  <m:apply>
+	    <m:mo>+</m:mo>
+	    <m:ci>V</m:ci>
+	  </m:apply>
+	</m:math> and 
+	<m:math>
+	  <m:apply>
+	    <m:minus/>
+	    <m:ci>V</m:ci>
+	  </m:apply>
+	</m:math>, the two voltage levels of the bit stream.
+      </para>
+
+      <para id="sec3para4">
+	Conversely a nearly white Gaussian process which has been
+	passed through a lowpass filter (see next section) will still
+	have a Gaussian pdf (as it is a summation of Gaussians) but
+	will no longer be white.
+      </para>
+    </section>
+
+    <section id="sec4">
+      <title>Coloured Processes</title>
+      <para id="sec4para1">
+	A random process whose PSD is not white or nearly white, is
+	often known as a <term>coloured noise</term> process.
+      </para>
+
+      <para id="sec4para2">
+	We may obtain coloured noise 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">Y</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> with PSD 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub><m:mi>S</m:mi><m:mi>Y</m:mi></m:msub>
+	    </m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math> simply by passing white (or nearly white) noise 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">X</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> with PSD 
+	<m:math>
+	  <m:ci>
+	    <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub> 
+	  </m:ci>
+	</m:math> through a filter with frequency response 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">ℋ</m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math>, such that from <link document="m11104" target-id="eq27" strength="2">this equation</link> from our discussion of
+	Spectral Properties of Random Signals. 
+
+	<equation id="eq41">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">
+		  <m:msub><m:mi>S</m:mi><m:mi>Y</m:mi></m:msub>
+		</m:ci>
+		<m:ci>ω</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>S</m:mi><m:mi>X</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+		<m:apply>
+		  <m:power/>
+		  <m:apply>
+		    <m:abs/>
+		    <m:apply>
+		      <m:ci type="fn">ℋ</m:ci>
+		      <m:ci>ω</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:times/>
+		<m:ci>
+		  <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub> 
+		</m:ci>
+		<m:apply>
+		  <m:power/>
+		  <m:apply>
+		    <m:abs/>
+		    <m:apply>
+		      <m:ci type="fn">ℋ</m:ci>
+		      <m:ci>ω</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:cn>2</m:cn>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	Hence if we design the filter such that 
+
+	<equation id="eq42">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:abs/>
+		<m:apply>
+		  <m:ci type="fn">ℋ</m:ci>
+		  <m:ci>ω</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:root/>
+		<m:apply>
+		  <m:divide/>
+		  <m:apply>
+		    <m:ci type="fn">
+		      <m:msub><m:mi>S</m:mi><m:mi>Y</m:mi></m:msub>
+		    </m:ci>
+		    <m:ci>ω</m:ci>
+		  </m:apply>
+		  <m:ci>
+		    <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub> 
+		  </m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	then 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">Y</m:ci>
+	    <m:ci>t</m:ci>
+	  </m:apply>
+	</m:math> will have the required coloured PSD.
+      </para>
+
+      <para id="sec4para3">
+	For this to work, 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">
+	      <m:msub><m:mi>S</m:mi><m:mi>Y</m:mi></m:msub>
+	    </m:ci>
+	    <m:ci>ω</m:ci>
+	  </m:apply>
+	</m:math> need only be constant (white) over the passband of
+	the filter, so a <term>nearly white</term> process which
+	satisfies this criterion is quite satisfactory and
+	realizable. 
+      </para>
+
+      <para id="sec4para4">
+	Using <link document="m11104" target-id="eq25" strength="2">this
+	equation</link> from our discussion of Spectral Properties of
+	Random Signals and <link target-id="eq36" strength="2"/>, the ACF
+	of the coloured noise is given by
+	
+	<equation id="eq43">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn"><m:msub>
+		    <m:mi>r</m:mi>
+		    <m:mrow>
+		      <m:mi>Y</m:mi>
+		      <m:mi>Y</m:mi>
+		    </m:mrow>
+		  </m:msub></m:ci>
+		<m:ci>τ</m:ci>
+	      </m:apply>
+ 
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/> 
+		<m:apply>
+		  <m:ci type="fn"><m:msub>
+		      <m:mi>r</m:mi>
+		      <m:mrow>
+			<m:mi>X</m:mi>
+			<m:mi>X</m:mi>
+		      </m:mrow>
+		    </m:msub></m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply> 
+		<m:apply>
+		  <m:ci type="fn">h</m:ci>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">h</m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/> 
+		<m:apply>
+		  <m:times/>
+		  <m:ci>
+		    <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub> 
+		  </m:ci>
+		  <m:apply>
+		    <m:mo>δ</m:mo>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">h</m:ci>
+		  <m:apply>
+		    <m:minus/>
+		    <m:ci>τ</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">h</m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/> 
+		<m:apply>
+		  <m:times/>
+		  <m:ci>
+		    <m:msub><m:mi>P</m:mi><m:mi>X</m:mi></m:msub> 
+		  </m:ci>
+		  <m:apply>
+		    <m:ci type="fn">h</m:ci>
+		    <m:apply>
+		      <m:minus/>
+		      <m:ci>τ</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">h</m:ci>
+		  <m:ci>τ</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	where 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">h</m:ci>
+	    <m:ci>τ</m:ci>
+	  </m:apply>
+	</m:math> is the impulse response of the filter.
+      </para>
+
+      <para id="sec4para5">
+	<link document="m11104" target-id="figure1" strength="2">This
+	Figure</link> from previous discussion shows two examples of
+	coloured noise, although the upper waveform is more 'nearly
+	white' than the lower one, as can be seen in <link document="m11104" target-id="figure1c" strength="2">part c of this
+	figure</link> from previous discussion in which the upper PSD
+	is flatter than the lower PSD. In these cases, the coloured
+	waveforms were produced by passing uncorrelated random noise
+	samples (white up to half the sampling frequency) through
+	half-sine filters (as in <link document="m10989" target-id="eq9" strength="2">this equation</link> from our discussion of
+	Random Signals) of length
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>
+	      <m:msub><m:mi>T</m:mi><m:mi>b</m:mi></m:msub>
+	    </m:ci>
+	    <m:cn>10</m:cn>
+	  </m:apply>
+	</m:math> and <m:math><m:cn>50</m:cn></m:math> samples
+	respectively.
+      </para>
+    </section>
+
+  </content>
+</document>

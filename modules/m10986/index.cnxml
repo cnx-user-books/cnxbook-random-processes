@@ -1,0 +1,813 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  
+  <title>Joint and Conditional cdfs and pdfs</title>
+  
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>4692a322-0a84-4ecd-908b-c98cc3a61c6e</md:uuid>
+</metadata>
+    
+
+  <content>
+    <section id="sec1">
+      <title>Cumulative distribution functions</title>
+
+      <para id="sec1para1">
+	We define the <term>joint</term> cdf to be 
+	
+	<equation id="eq16">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">F</m:ci>
+		<m:ci>x</m:ci>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:apply>
+		  <m:and/>
+		  <m:apply>
+		    <m:leq/>
+		    <m:ci>X</m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		  <m:apply>
+		    <m:leq/>
+		    <m:ci>Y</m:ci>
+		    <m:ci>y</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	and <term>conditional</term> cdf to be 
+	
+	<equation id="eq17">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">F</m:ci>
+		<m:apply>
+		  <m:mo>|</m:mo>
+		  <m:ci>x</m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		<m:condition>
+		  <m:apply>
+		    <m:leq/>
+		    <m:ci>Y</m:ci>
+		    <m:ci>y</m:ci>
+		  </m:apply> 
+		</m:condition>
+		<m:apply>
+		  <m:leq/>
+		  <m:ci>X</m:ci>
+		  <m:ci>x</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	Hence we get the following rules: 
+	
+	<list id="list1">
+	  <item>
+	    <term>Conditional probability (cdf)</term>: 
+	    
+	    <equation id="eq18">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">F</m:ci>
+		    <m:apply>
+		      <m:mo>|</m:mo>
+		      <m:ci>x</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		    <m:condition>
+		      <m:apply>
+			<m:leq/>
+			<m:ci>Y</m:ci>
+			<m:ci>y</m:ci>
+		      </m:apply>
+		    </m:condition>
+		    <m:apply>
+		      <m:leq/>
+		      <m:ci>X</m:ci>
+		      <m:ci>x</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:ci type="fn">F</m:ci>
+		      <m:ci>x</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>F</m:mi><m:mi>Y</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>		  
+	      </m:math>
+	    </equation>
+	  </item>
+	  
+	  <item>
+	    <term>Bayes Rule (cdf)</term>:
+	    
+	    <equation id="eq19">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">F</m:ci>
+		    <m:apply>
+		      <m:mo>|</m:mo>
+		      <m:ci>x</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:ci type="fn">F</m:ci>
+			<m:apply>
+			  <m:mo>|</m:mo>
+			  <m:ci>y</m:ci>
+			  <m:ci>x</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">F</m:ci>
+			<m:ci>x</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">F</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	  </item>
+	  
+	  <item>
+	    <term>Total probability (cdf)</term>: 
+	    
+	    <equation id="eq20">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">F</m:ci>
+		    <m:ci>x</m:ci>
+		    <m:infinity/>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">F</m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	    
+	    which follows because the event 
+	    <m:math>
+	      <m:apply>
+		<m:leq/>
+		<m:ci>Y</m:ci>
+		<m:infinity/>
+	      </m:apply>
+	    </m:math> itself forms a partition of the sample space. 
+	  </item>
+	</list>
+
+	Conditional cdf's have similar properties to standard cdf's,
+	i.e.
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub>
+		  <m:mi>F</m:mi>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mo>|</m:mo>
+		    <m:mi>Y</m:mi>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:mo>|</m:mo>
+		<m:apply>
+		  <m:minus/>
+		  <m:infinity/>
+		</m:apply>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>
+	
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:ci type="fn">
+		<m:msub><m:mi>F</m:mi>
+		  <m:mrow>
+		    <m:mi>X</m:mi>
+		    <m:mo>|</m:mo>
+		    <m:mi>Y</m:mi>
+		  </m:mrow>
+		</m:msub>
+	      </m:ci>
+	      <m:apply>
+		<m:mo>|</m:mo>
+		<m:infinity/>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>
+      </para>
+    </section>
+
+    
+    <section id="sec2">
+      <title>Probability density functions</title>
+      
+      <para id="sec2para1">
+	We define joint and conditional pdfs in terms of corresponding
+	cdfs. The <term>joint</term> pad is defined to be 
+
+	<equation id="eq22">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">f</m:ci>
+		<m:ci>x</m:ci>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	      <m:apply>
+		<m:partialdiff/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:bvar><m:ci>y</m:ci></m:bvar>
+		<m:apply>
+		  <m:ci type="fn">F</m:ci>
+		  <m:ci>x</m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	and the <term>conditional</term> pdf is defined to be 
+
+	<equation id="eq23">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:ci type="fn">f</m:ci>
+		<m:apply>
+		  <m:mo>|</m:mo>
+		  <m:ci>x</m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:partialdiff/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:apply>
+		  <m:diff/>
+		  <m:apply>
+		    <m:ci type="fn">F</m:ci>
+		    <m:apply>
+		      <m:mo>|</m:mo>
+		      <m:ci>x</m:ci>
+		      <m:apply>
+			<m:eq/>
+			<m:ci>Y</m:ci>
+			<m:ci>y</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+
+	where 
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:diff/>
+	      <m:apply>
+		<m:ci type="fn">F</m:ci>
+		<m:apply>
+		  <m:mo>|</m:mo>
+		  <m:ci>x</m:ci>
+		  <m:apply>
+		    <m:eq/>
+		    <m:ci>Y</m:ci>
+		    <m:ci>y</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:apply>
+	      <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+	      <m:condition>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>Y</m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:condition>
+	      <m:apply>
+		<m:leq/>
+		<m:ci>X</m:ci>
+		<m:ci>x</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>
+
+	Note that 
+	<m:math>
+	  <m:apply>
+	    <m:diff/>
+	    <m:apply>
+	      <m:ci type="fn">F</m:ci>
+	      <m:apply>
+		<m:mo>|</m:mo>
+		<m:ci>x</m:ci>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>Y</m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math> is different from the conditional cdf 
+	<m:math>
+	  <m:apply>
+	    <m:ci type="fn">F</m:ci>
+	    <m:apply>
+	      <m:mo>|</m:mo>
+	      <m:ci>x</m:ci>
+	      <m:apply>
+		<m:eq/>
+		<m:ci>Y</m:ci>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math>, previously defined, but there is a slight
+	problem. The event, 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>Y</m:ci>
+	    <m:ci>y</m:ci>
+	  </m:apply>
+	</m:math>, has zero probability for continuous random
+	variables, hence probability conditional on 
+	<m:math>
+	  <m:apply>
+	    <m:eq/>
+	    <m:ci>Y</m:ci>
+	    <m:ci>y</m:ci>
+	  </m:apply>
+	</m:math> is not directly defined and 
+	<m:math>
+	  <m:apply>
+	    <m:diff/>
+	    <m:apply>
+	      <m:ci type="fn">F</m:ci>
+	      <m:apply>
+		<m:mo>|</m:mo>
+		<m:ci>x</m:ci>
+		<m:apply>
+		  <m:eq/>
+		  <m:ci>Y</m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:apply>
+	</m:math> cannot be found by direct application of event-based
+	probability. However all is OK if we consider it as a limiting
+	case: 
+	
+	<equation id="eq24">
+	  <m:math>
+	    <m:apply>
+	      <m:eq/>
+	      <m:apply>
+		<m:diff/>
+		<m:apply>
+		  <m:ci type="fn">F</m:ci>
+		  <m:apply>
+		    <m:mo>|</m:mo>
+		    <m:ci>x</m:ci>
+		    <m:apply>
+		      <m:eq/>
+		      <m:ci>Y</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:limit/>
+		<m:bvar>
+		  <m:apply>
+		    <m:mo>δ</m:mo>
+		    <m:ci>y</m:ci>
+		  </m:apply>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:apply>
+		  <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#probability"/>
+		  <m:condition>
+		    <m:apply>
+		      <m:leq/>
+		      <m:apply>
+			<m:lt/>
+			<m:ci>y</m:ci>
+			<m:ci>Y</m:ci>
+		      </m:apply>
+		      <m:apply>
+			<m:plus/>
+			<m:ci>y</m:ci>
+			<m:apply>
+			  <m:mo>δ</m:mo>
+			  <m:ci>y</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:condition>
+		  <m:apply>
+		    <m:leq/>
+		    <m:ci>X</m:ci>
+		    <m:ci>x</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:limit/>
+		<m:bvar>
+		  <m:apply>
+		    <m:mo>δ</m:mo>
+		    <m:ci>y</m:ci>
+		  </m:apply>
+		</m:bvar>
+		<m:lowlimit>
+		  <m:cn>0</m:cn>
+		</m:lowlimit>
+		<m:apply>
+		  <m:divide/>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:ci type="fn">F</m:ci>
+		      <m:ci>x</m:ci>
+		      <m:apply>
+			<m:plus/>
+			<m:ci>y</m:ci>
+			<m:apply>
+			  <m:mo>δ</m:mo>
+			  <m:ci>y</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">F</m:ci>
+		      <m:ci>x</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:minus/>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>F</m:mi><m:mi>Y</m:mi></m:msub>
+		      </m:ci>
+		      <m:apply>
+			<m:plus/>
+			<m:ci>y</m:ci>
+			<m:apply>
+			  <m:mo>δ</m:mo>
+			  <m:ci>y</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">
+			<m:msub><m:mi>F</m:mi><m:mi>Y</m:mi></m:msub>
+		      </m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:apply>
+	      <m:apply>
+		<m:divide/>
+		<m:apply>
+		  <m:partialdiff/>
+		  <m:bvar><m:ci>y</m:ci></m:bvar>
+		  <m:apply>
+		    <m:ci type="fn">F</m:ci>
+		    <m:ci>x</m:ci>
+		    <m:ci>y</m:ci>
+		  </m:apply>
+		</m:apply>
+		<m:apply>
+		  <m:ci type="fn">
+		    <m:msub><m:mi>f</m:mi><m:mi>Y</m:mi></m:msub>
+		  </m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	  </m:math>
+	</equation>
+	
+	Joint and conditional pdfs have similar properties and
+	interpretation to ordinary pdfs: 
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:gt/>
+	    <m:apply>
+	      <m:ci type="fn">f</m:ci>
+	      <m:ci>x</m:ci>
+	      <m:ci>y</m:ci>
+	    </m:apply>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>y</m:ci></m:bvar>
+	      <m:apply>
+		<m:int/>
+		<m:bvar><m:ci>x</m:ci></m:bvar>
+		<m:apply>
+		  <m:ci type="fn">f</m:ci>
+		  <m:ci>x</m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>
+
+	<m:math display="block">
+	  <m:apply>
+	    <m:gt/>
+	    <m:apply>
+	      <m:ci type="fn">f</m:ci>
+	      <m:apply>
+		<m:mo>|</m:mo>
+		<m:ci>x</m:ci>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>0</m:cn>
+	  </m:apply>
+	</m:math>
+	
+	<m:math display="block">
+	  <m:apply>
+	    <m:eq/>
+	    <m:apply>
+	      <m:int/>
+	      <m:bvar><m:ci>x</m:ci></m:bvar>
+	      <m:apply>
+		<m:ci type="fn">f</m:ci>
+		<m:apply>
+		  <m:mo>|</m:mo>
+		  <m:ci>x</m:ci>
+		  <m:ci>y</m:ci>
+		</m:apply>
+	      </m:apply>
+	    </m:apply>
+	    <m:cn>1</m:cn>
+	  </m:apply>
+	</m:math>
+
+	<note id="idm5747776">From now on interpret
+	<m:math><m:ci>∫</m:ci></m:math> as 
+	  <m:math>
+	    <m:ci>
+	      <m:msubsup>
+		<m:mi>∫</m:mi>
+		<m:mrow>
+		  <m:mo>-</m:mo>
+		  <m:mi>∞</m:mi>
+		</m:mrow>
+		<m:mi>∞</m:mi>
+	      </m:msubsup>
+	    </m:ci>
+	  </m:math> unless otherwise stated.</note>
+
+	For pdfs we get the following rules: 
+
+	<list id="list2">
+	  <item>
+	    <term>Conditional pdf:</term>
+
+	    <equation id="eq26">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">f</m:ci>
+		    <m:apply>
+		      <m:mo>|</m:mo>
+		      <m:ci>x</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:ci type="fn">f</m:ci>
+		      <m:ci>x</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">f</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	  </item>
+
+	  <item>
+	    <term>Bayes Rule (pdf):</term>
+
+	    <equation id="eq27">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:ci type="fn">f</m:ci>
+		    <m:apply>
+		      <m:mo>|</m:mo>
+		      <m:ci>x</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:divide/>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:ci type="fn">f</m:ci>
+			<m:apply>
+			  <m:mo>|</m:mo>
+			  <m:ci>y</m:ci>
+			  <m:ci>x</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">f</m:ci>
+			<m:ci>x</m:ci>
+		      </m:apply>
+		    </m:apply>
+		    <m:apply>
+		      <m:ci type="fn">f</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	  </item>
+
+	  <item>
+	    <term>Total Probability (pdf):</term>
+	    
+	    <equation id="eq28">
+	      <m:math>
+		<m:apply>
+		  <m:eq/>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>x</m:ci></m:bvar>
+		    <m:apply>
+		      <m:times/>
+		      <m:apply>
+			<m:ci type="fn">f</m:ci>
+			<m:apply>
+			  <m:mo>|</m:mo>
+			  <m:ci>y</m:ci>
+			  <m:ci>x</m:ci>
+			</m:apply>
+		      </m:apply>
+		      <m:apply>
+			<m:ci type="fn">f</m:ci>
+			<m:ci>x</m:ci>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:int/>
+		    <m:bvar><m:ci>x</m:ci></m:bvar>
+		    <m:apply>
+		      <m:ci type="fn">f</m:ci>
+		      <m:ci>y</m:ci>
+		      <m:ci>x</m:ci>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:times/>
+		    <m:apply>
+		      <m:ci type="fn">f</m:ci>
+		      <m:ci>y</m:ci>
+		    </m:apply>
+		    <m:apply>
+		      <m:int/>
+		      <m:bvar><m:ci>x</m:ci></m:bvar>
+		      <m:apply>
+			<m:ci type="fn">f</m:ci>
+			<m:apply>
+			  <m:mo>|</m:mo>
+			  <m:ci>x</m:ci>
+			  <m:ci>y</m:ci>
+			</m:apply>
+		      </m:apply>
+		    </m:apply>
+		  </m:apply>
+		  <m:apply>
+		    <m:ci type="fn">f</m:ci>
+		    <m:ci>y</m:ci>
+		  </m:apply>
+		</m:apply>
+	      </m:math>
+	    </equation>
+	  
+	    
+	    The final result is often referred to as the
+	    <term>Marginalisation Integral</term> and 
+	    <m:math>
+	      <m:apply>
+		<m:ci type="fn">f</m:ci>
+		<m:ci>y</m:ci>
+	      </m:apply>
+	    </m:math> as the <term>Marginal Probability</term>.
+	  </item>
+	  	
+	</list>
+
+
+
+      </para>
+    </section>
+
+
+
+  </content>
+  
+</document>
